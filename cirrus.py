@@ -188,8 +188,8 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                 await message.channel.send(file=discord.File(png_file,filename=png_file))
             finally:
                 os.remove(png_file)
-                os.makedirs(f"/home/firebot/git/Flags/{message.author.name}",exist_ok=True)
-                shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/{message.author.name}/{code}.svg")
+                os.makedirs(f"/home/firebot/git/Flags/special/generated/{message.author.name}",exist_ok=True)
+                shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/special/generated/{message.author.name}/{code}.svg")
                 subprocess.run(["git", "sync"])
                 await echo(f"You can find the svg version [here](https://github.com/Fiaguhop137/Flags/blob/main/{message.author.name}/{code}.svg)",message.channel)
         except ValueError as e:
