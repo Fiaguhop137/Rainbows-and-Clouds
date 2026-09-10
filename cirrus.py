@@ -1,4 +1,4 @@
-import discord,asyncio,os,json,re,tempfile,cairosvg
+import discord,asyncio,os,json,re,cairosvg,shutil,subprocess
 from time import perf_counter
 from dotenv import load_dotenv
 from datetime import datetime
@@ -118,7 +118,7 @@ async def sync_roles(server:discord.Guild):
                 await member.remove_roles(member_role)
         if role not in member.roles:
             await member.add_roles(role)
-async def update_nickname(member: discord.Member):
+async def update_nickname(member:discord.Member):
     user=users.get(str(member.id))
     if user is None:return
     nickname=f'{user["name"]} ({user["pronouns"]})'
@@ -132,7 +132,7 @@ async def echo(message,channel:discord.TextChannel):
 async def run_cmd(cmd:str,args:list,message:discord.Message):
     if cmd[0]!="~":
         return
-    cmd=cmd.strip().lower().strip("~")
+    cmd=cmd.strip().lower()[1:]
     if cmd=="help":
         await echo("Available commands: ~help, ~ping, ~echo <message>, ~set <name|pronouns|color> <value>, ~flag <hex color code>",message.channel)
     elif cmd=="ping":
@@ -158,7 +158,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                 except ValueError:
                     await echo("Color must be a valid 6 digit hexadecimal value, e.g. FFAA00.",message.channel)
                     return
-                if color<0x000000 or color>0xFFFFFF or len(value)!=6 or any(c not in "0123456789abcdefABCDEF" for c in value):
+                if color<0x000000 or color>0xFFFFFF or len(value)!=6:
                     await echo("Color must be a valid 6 digit hexadecimal value, e.g. FFAA00.",message.channel)
                     return
                 users[str(message.author.id)][key]=value.upper()
@@ -179,17 +179,51 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         code="".join(args)
         try:
             svg=generate_flag(code,users[str(message.author.id)]["name"])
-            with tempfile.NamedTemporaryFile(suffix=".png",delete=False) as temp:
-                png_filename=temp.name
+            with open(f"{code}.svg","w") as svg_file:
+                svg_file.write(svg)
+            open(f"{code}.png","x")
+            png_file=f"{code}.png"
             try:
-                cairosvg.svg2png(bytestring=svg.encode("utf-8"),write_to=png_filename,output_width=1200)
-                await message.channel.send(file=discord.File(png_filename,filename="flag.png"))
+                cairosvg.svg2png(bytestring=svg.encode("utf-8"),write_to=png_file,output_width=1200)
+                await message.channel.send(file=discord.File(png_file,filename=png_file))
             finally:
-                os.remove(png_filename)
+                os.remove(png_file)
+                os.makedirs(f"/home/firebot/git/Flags/{message.author.name}",exist_ok=True)
+                shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/{message.author.name}/{code}.svg")
+                subprocess.run(["git", "sync"])
+                await echo(f"You can find the svg version at https://github.com/firebot/Flags/blob/main/{message.author.name}/{code}.svg",message.channel)
         except ValueError as e:
             await echo(f"Invalid flag code: {e}",message.channel)
         except Exception as e:
             await echo(f"Failed to generate flag: {e}",message.channel)
+    elif cmd=="replay":
+        if not args:
+            await echo("Usage: ~replay <message count>",message.channel)
+            return
+        chat_logs=[]
+        lines=int(args[0])
+        try:
+            with open(CHAT_LOG_FILE,"r") as chat_log:
+                chat_logs=chat_log.readlines()
+        except FileNotFoundError:
+            await echo("No chat log found.",message.channel)
+            return
+        if lines<=0:
+            await echo("Message count must be a positive integer.",message.channel)
+            return
+        if lines>len(chat_logs):
+            lines=len(chat_logs)
+        for i in range(lines):
+            await echo(chat_logs[lines-i-1],message.channel)
+    elif cmd=="reboot":
+        if "cloud" not in [role.name for role in message.author.roles]:
+            await echo("You are not authorized to use this command.",message.channel)
+            return
+        await echo("Rebooting...",message.channel)
+        reboot="/home/firebot/git/Rainbows and Clouds/restart_cirrus.sh"
+        os.execv(reboot,[reboot])
+    else:
+        await echo(f"Unknown command: {cmd}. Type ~help for a list of commands.",message.channel)
 @cirrus.event
 async def on_guild_join(server:discord.Guild):
     try:
@@ -206,6 +240,9 @@ async def on_guild_join(server:discord.Guild):
         return
 @cirrus.event
 async def on_message(message:discord.Message):
+    if message.guild is None:
+        await message.author.send("I don't support DMs. Please use me in the Rainbows and Clouds server.")
+        return
     if message.author.bot:
         await asyncio.sleep(1)
     parts=message.content.split()
@@ -231,6 +268,7 @@ async def on_message(message:discord.Message):
 async def on_member_join(member:discord.Member):
     await sync_roles(member.guild)
     await update_nickname(member)
+    await echo(f"Hi {member.mention}! Welcome to the Rainbows and Clouds server! Type ~help for a list of commands. ",rainbows_and_clouds_channel_id)
 @cirrus.event
 async def on_member_update(before:discord.Member,after:discord.Member):
     if before.nick!=after.nick:
@@ -240,4 +278,7 @@ async def on_ready():
     server=cirrus.get_guild(rainbows_and_clouds_server_id)
     if server is not None:
         await sync_roles(server)
+    for user in server.members:
+        await update_nickname(user)
+    await echo(f"Cirrus has rebooted! Type ~help for a list of commands.",cirrus.get_channel(rainbows_and_clouds_channel_id))
 cirrus.run(TOKEN)

@@ -17,7 +17,7 @@
     "1507140530021339317": {
         "name": "Lix",
         "pronouns": "He/Him",
-        "color": "AA00FF"
+        "color": "FF0000"
     },
     "155149108183695360": {
         "name": "Dyno",
@@ -29,21 +29,23 @@
         "pronouns": "they/them"
     },
     "1486168626821075056": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help"
+        "name": "Ray",
+        "pronouns": "He/Him",
+        "color": "00FFFF"
     },
     "1483256063502581802": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help"
+        "name": "Ether",
+        "pronouns": "They/Them",
+        "color": "C8A2C8"
     },
     "1512533966001930254": {
         "name": "Plutonium Dunn",
-        "pronouns": "they/them",
+        "pronouns": "They/Them",
         "color": "FF88CC"
     },
     "789314712990384168": {
-        "name": "Idiot",
-        "pronouns": "stupid/idiot/dumb",
+        "name": "Genius",
+        "pronouns": "ben",
         "color": "B83939"
     }
 }

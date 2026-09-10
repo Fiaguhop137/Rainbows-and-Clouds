@@ -448,3 +448,73 @@ In nick: Must be 32 or fewer in length.
 [2026-09-10T08:26:01.431685-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): meow
 [2026-09-10T08:26:10.538682-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~ping
 [2026-09-10T08:26:11.666681-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): pong!: 174.39ms
+[2026-09-10T15:48:36.292926-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~test
+[2026-09-10T15:48:39.485150-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~ping
+[2026-09-10T15:48:40.732058-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): pong!: 213.02ms
+[2026-09-10T15:48:45.613257-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): fixed it
+[2026-09-10T17:16:26.601115-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~replay 5
+[2026-09-10T17:16:44.771613-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~replay 5
+[2026-09-10T17:16:47.833219-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): uh
+[2026-09-10T17:17:58.788630-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~replay 5
+[2026-09-10T17:17:59.979350-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): [2026-09-09T17:43:37.561063-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): success
+[2026-09-10T17:18:00.308110-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): [2026-09-09T17:43:35.062720-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): test
+[2026-09-10T17:18:00.541071-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): [2026-09-09T17:43:33.712994-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~echo test
+[2026-09-10T17:18:00.961051-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): [2026-09-09T17:43:22.222135-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): hi
+[2026-09-10T17:18:01.378832-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): [2026-09-09T17:43:20.760273-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~echo hi
+[2026-09-10T17:18:02.769055-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): success
+[2026-09-10T17:26:17.445015-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): peak
+[2026-09-10T17:26:24.025161-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~pong
+[2026-09-10T17:26:25.139970-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: pong. Type ~help for a list of commands.
+[2026-09-10T17:26:25.731410-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): brh
+[2026-09-10T17:26:33.843593-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~pingping
+[2026-09-10T17:26:34.994163-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: pingping. Type ~help for a list of commands.
+[2026-09-10T17:26:36.373170-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~pingpong
+[2026-09-10T17:26:39.737844-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): breh
+[2026-09-10T17:26:40.739086-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: pingpong. Type ~help for a list of commands.
+[2026-09-10T17:26:45.748890-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~name set Stupid
+[2026-09-10T17:26:46.965120-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: name. Type ~help for a list of commands.
+[2026-09-10T17:26:49.510862-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~set name stupid
+[2026-09-10T17:26:50.895866-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to stupid!
+[2026-09-10T17:26:53.269302-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~set pronouns idiot
+[2026-09-10T17:26:54.608086-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your pronouns to idiot!
+[2026-09-10T17:27:23.038244-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): dang it bypasses nicks
+[2026-09-10T17:28:18.817883-04:00, Rainbows and Clouds/lightning] dragondog558(789314712990384168): HATSUNE MIKUUUU
+[2026-09-10T17:28:39.806676-04:00, Rainbows and Clouds/lightning] dragondog558(789314712990384168): https://klipy.com/gifs/miku-hatsune-miku-252
+[2026-09-10T17:28:51.405493-04:00, Rainbows and Clouds/lightning] dragondog558(789314712990384168): idk
+[2026-09-10T17:29:14.904799-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:29:14.905169-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:29:16.038258-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): You are not authorized to use this command.
+[2026-09-10T17:29:16.041065-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): You are not authorized to use this command.
+[2026-09-10T17:29:16.096929-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: reboot. Type ~help for a list of commands.
+[2026-09-10T17:29:16.101671-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: reboot. Type ~help for a list of commands.
+[2026-09-10T17:29:19.165295-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): oop-
+[2026-09-10T17:29:19.165311-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): oop-
+[2026-09-10T17:29:53.277808-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:29:53.277809-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:29:54.514150-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Unknown command: reboot. Type ~help for a list of commands.
+[2026-09-10T17:29:54.539110-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Rebooting...
+[2026-09-10T17:30:26.128172-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~ping
+[2026-09-10T17:30:27.544033-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): pong!: 232.10ms
+[2026-09-10T17:30:29.918050-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:31:07.392401-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ~set name Ben
+[2026-09-10T17:31:09.858919-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to Ben!
+[2026-09-10T17:31:17.543296-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): ill leave my pronouns alone
+[2026-09-10T17:31:18.985489-04:00, Rainbows and Clouds/rainbows] dragondog558(789314712990384168): bye now
+[2026-09-10T17:32:21.029173-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:32:29.071012-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:32:36.260758-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ???
+[2026-09-10T17:33:53.414702-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:34:04.040555-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Cirrus has rebooted! Type ~help for a list of commands.
+[2026-09-10T17:34:24.358627-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): oh
+[2026-09-10T17:37:27.041133-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T17:37:32.981136-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Cirrus has rebooted! Type ~help for a list of commands.
+[2026-09-10T17:37:34.790433-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): yaey
+[2026-09-10T17:39:32.614420-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): <@789314712990384168>
+[2026-09-10T18:16:56.256144-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T18:17:02.039588-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Cirrus has rebooted! Type ~help for a list of commands.
+[2026-09-10T18:17:11.258338-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~flag 00000099d9ea00a2e8b5e61dffffffffc90efd6666ffaec9000000>74d7eeffafc8ffffff
+[2026-09-10T18:17:13.978095-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to generate flag: [Errno 2] No such file or directory: '/home/firebot/git/Flags/fiaguhop137/00000099d9ea00a2e8b5e61dffffffffc90efd6666ffaec9000000>74d7eeffafc8ffffff.svg'
+[2026-09-10T18:17:17.660159-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): oop-
+[2026-09-10T18:19:23.952526-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-10T18:19:29.670076-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Cirrus has rebooted! Type ~help for a list of commands.
+[2026-09-10T18:19:29.779016-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~flag 00000099d9ea00a2e8b5e61dffffffffc90efd6666ffaec9000000>74d7eeffafc8ffffff
