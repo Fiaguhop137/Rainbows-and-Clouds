@@ -37,8 +37,13 @@
         "pronouns": "try ~set or ~help"
     },
     "1512533966001930254": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help",
-        "color": "000000"
+        "name": "Plutonium Dunn",
+        "pronouns": "they/them",
+        "color": "FF88CC"
+    },
+    "789314712990384168": {
+        "name": "Idiot",
+        "pronouns": "stupid/idiot/dumb",
+        "color": "B83939"
     }
 }
