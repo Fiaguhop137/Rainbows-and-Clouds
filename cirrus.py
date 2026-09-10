@@ -190,8 +190,9 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                 os.remove(png_file)
                 os.makedirs(f"/home/firebot/git/Flags/special/generated/{message.author.name}",exist_ok=True)
                 shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/special/generated/{message.author.name}/{code}.svg")
-                subprocess.run(["git", "sync"])
-                await echo(f"You can find the svg version [here](https://github.com/Fiaguhop137/Flags/blob/main/{message.author.name}/{code}.svg)",message.channel)
+                subprocess.run(["git","sync"])
+                m=await echo(f"You can find the svg version [here](https://github.com/Fiaguhop137/Flags/blob/main/special/generated/{message.author.name}/{code}.svg)",message.channel)
+                await m.remove_attachments()
         except ValueError as e:
             await echo(f"Invalid flag code: {e}",message.channel)
         except Exception as e:
