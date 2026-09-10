@@ -191,7 +191,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                 os.makedirs(f"/home/firebot/git/Flags/{message.author.name}",exist_ok=True)
                 shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/{message.author.name}/{code}.svg")
                 subprocess.run(["git", "sync"])
-                await echo(f"You can find the svg version at https://github.com/firebot/Flags/blob/main/{message.author.name}/{code}.svg",message.channel)
+                await echo(f"You can find the svg version [here](https://github.com/Fiaguhop137/Flags/blob/main/{message.author.name}/{code}.svg)",message.channel)
         except ValueError as e:
             await echo(f"Invalid flag code: {e}",message.channel)
         except Exception as e:
