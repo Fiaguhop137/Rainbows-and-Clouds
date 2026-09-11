@@ -143,6 +143,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         ' ~flag <code>                           - Generate a flag based on the provided hex color code\n'
         ' ~replay <lines>                        - Replay the last <lines> messages\n'
         ' ~reboot                                - Reboot the bot (lightning only)\n'
+        ' ~purge <type> <etc>                    - Delete messages according to the specified type and parameters\n'
         '```',message.channel)
     elif cmd=="ping":
         start_time=perf_counter()
@@ -226,8 +227,11 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             return
         if lines>len(chat_logs):
             lines=len(chat_logs)
-        for i in range(lines):
-            await echo(chat_logs[lines-i-1],message.channel)
+        if lines>100:
+            lines=100
+        chat_logs=chat_logs[-lines:]
+        for line in chat_logs:
+            await echo(line,message.channel)
     elif cmd=="reboot":
         if "lightning" not in [role.name for role in message.author.roles]:
             await echo("You are not authorized to use this command.",message.channel)
@@ -235,6 +239,107 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         await echo("Rebooting...",message.channel)
         reboot="/home/firebot/git/Rainbows and Clouds/restart_cirrus.sh"
         os.execv(reboot,[reboot])
+    elif cmd=="purge":
+        purge_type=args[0].lower() if args else ""
+        if purge_type=="bots":
+            if "cloud" not in [role.name for role in message.author.roles]:
+                await echo("You are not authorized to use this command.",message.channel)
+                return
+            if len(args)<2:
+                await echo("Usage: ~purge bots <count>",message.channel)
+                return
+            deleted=await message.channel.purge(limit=int(args[1]) if len(args)>1 else 100,check=lambda m:m.author.bot)
+            await echo(f"Deleted {len(deleted)} bot messages.",message.channel)
+        elif purge_type=="user":
+            if "cloud" not in [role.name for role in message.author.roles]:
+                await echo("You are not authorized to use this command.",message.channel)
+                return
+            if len(args)<3:
+                await echo("Usage: ~purge user <user_id> <count>",message.channel)
+                return
+            try:
+                user_id=int(args[1])
+            except ValueError:
+                await echo("User ID must be a valid integer.",message.channel)
+                return
+            count=int(args[2]) if len(args)>2 else 100
+            deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
+            await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
+        elif cmd=="purge":
+            purge_type=args[0].lower() if args else ""
+            if purge_type=="bots":
+                if "cloud" not in [role.name for role in message.author.roles]:
+                    await echo("You are not authorized to use this command.",message.channel)
+                    return
+                if len(args)<2:
+                    await echo("Usage: ~purge bots <count>",message.channel)
+                    return
+                try:
+                    count=int(args[1])
+                except ValueError:
+                    await echo("Count must be a valid integer.",message.channel)
+                    return
+                deleted=await message.channel.purge(limit=count,check=lambda m:m.author.bot)
+                await echo(f"Deleted {len(deleted)} bot messages.",message.channel)
+            elif purge_type=="user":
+                if "cloud" not in [role.name for role in message.author.roles]:
+                    await echo("You are not authorized to use this command.",message.channel)
+                    return
+                if len(args)<3:
+                    await echo("Usage: ~purge user <user_id> <count>",message.channel)
+                    return
+                try:
+                    user_id=int(args[1])
+                    count=int(args[2])
+                except ValueError:
+                    await echo("User ID and count must be valid integers.",message.channel)
+                    return
+                deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
+                await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
+            elif purge_type=="nuke":
+                if "plasma" not in [role.name.lower() for role in message.author.roles]:
+                    await echo("You are not authorized to use this command.",message.channel)
+                    return
+                nuke_type=args[1].lower() if len(args)>1 else ""
+                if nuke_type=="bots":
+                    if "cloud" not in [role.name for role in message.author.roles]:
+                        await echo("You are not authorized to use this command.",message.channel)
+                        return
+                    while await message.channel.purge(limit=100,check=lambda m:m.author.bot):pass
+                    await echo("Deleted all bot messages.",message.channel)
+                elif nuke_type=="user":
+                    if "cloud" not in [role.name for role in message.author.roles]:
+                        await echo("You are not authorized to use this command.",message.channel)
+                        return
+                    if len(args)<3:
+                        await echo("Usage: ~purge nuke user <user_id>",message.channel)
+                        return
+                    try:
+                        user_id=int(args[2])
+                    except ValueError:
+                        await echo("User ID must be a valid integer.",message.channel)
+                        return
+                    while await message.channel.purge(limit=100,check=lambda m:m.author.id==user_id):
+                        pass
+                    await echo(f"Deleted all messages from user {user_id}.",message.channel)
+                else:
+                    while await message.channel.purge(limit=100):
+                        pass
+                    await echo("Deleted all messages.",message.channel)
+            else:
+                if "cloud" not in [role.name for role in message.author.roles]:
+                    await echo("You are not authorized to use this command.",message.channel)
+                    return
+                if len(args)<1:
+                    await echo("Usage: ~purge <count>",message.channel)
+                    return
+                try:
+                    count=int(args[0])
+                except ValueError:
+                    await echo("Count must be a valid integer.",message.channel)
+                    return
+                deleted=await message.channel.purge(limit=count)
+                await echo(f"Deleted {len(deleted)} messages.",message.channel)
     else:
         await echo(f"Unknown command: {cmd}. Type ~help for a list of commands.",message.channel)
 @cirrus.event
