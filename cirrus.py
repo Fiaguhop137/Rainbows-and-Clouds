@@ -134,7 +134,16 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         return
     cmd=cmd.strip().lower()[1:]
     if cmd=="help":
-        await echo("Available commands: ~help, ~ping, ~echo <message>, ~set <name|pronouns|color> <value>, ~flag <hex color code>",message.channel)
+        await echo('```markdown\n'
+        '=Available commands: \n'
+        ' ~help                                  - Show this help message\n'
+        ' ~ping                                  - Get the bot\'s latency\n'
+        ' ~echo <message>                        - Echos the message back\n'
+        ' ~set <name|pronouns|color> <value>     - Set your name, pronouns, or color\n'
+        ' ~flag <code>                           - Generate a flag based on the provided hex color code\n'
+        ' ~replay <lines>                        - Replay the last <lines> messages\n'
+        ' ~reboot                                - Reboot the bot (lightning only)\n'
+        '```',message.channel)
     elif cmd=="ping":
         start_time=perf_counter()
         pong=await echo(f"Pong! (calculating, please wait...)",message.channel)
@@ -201,7 +210,11 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             await echo("Usage: ~replay <message count>",message.channel)
             return
         chat_logs=[]
-        lines=int(args[0])
+        try:
+            lines=int(args[0])
+        except ValueError:
+            await echo("Message count must be a valid integer.",message.channel)
+            return
         try:
             with open(CHAT_LOG_FILE,"r") as chat_log:
                 chat_logs=chat_log.readlines()
@@ -216,7 +229,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         for i in range(lines):
             await echo(chat_logs[lines-i-1],message.channel)
     elif cmd=="reboot":
-        if "cloud" not in [role.name for role in message.author.roles]:
+        if "lightning" not in [role.name for role in message.author.roles]:
             await echo("You are not authorized to use this command.",message.channel)
             return
         await echo("Rebooting...",message.channel)
