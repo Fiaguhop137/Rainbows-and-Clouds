@@ -162,3 +162,10 @@ To github.com:Fiaguhop137/Flags.git
 Already up to date.
 Everything up-to-date
 Processing repository: /home/firebot/git/Rainbows and Clouds/...
+[main 1664cfe] Auto-commit: 2026.09.12.15.49.10
+ 2 files changed, 40 insertions(+)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+[2026-09-12 15:51:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ca44df4f66979d675249f8078cd150b9.
+[2026-09-12 18:23:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ca44df4f66979d675249f8078cd150b9.
+[2026-09-12 19:35:14] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ca44df4f66979d675249f8078cd150b9.
