@@ -39,13 +39,23 @@
         "color": "C8A2C8"
     },
     "1512533966001930254": {
-        "name": "the republic of china",
-        "pronouns": "~",
+        "name": "Plutonium",
+        "pronouns": "They/Them",
         "color": "FFAADD"
     },
     "789314712990384168": {
         "name": "Ben",
         "pronouns": "Idiot",
         "color": "4D6DF3"
+    },
+    "1539025840866730125": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000"
+    },
+    "1292531498695524470": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000"
     }
 }

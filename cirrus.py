@@ -386,7 +386,7 @@ async def on_message(message:discord.Message):
 async def on_member_join(member:discord.Member):
     await sync_roles(member.guild)
     await update_nickname(member)
-    await echo(f"Hi {member.mention}! Welcome to the Rainbows and Clouds server! Type ~help for a list of commands. ",rainbows_and_clouds_channel_id)
+    await echo(f"Hi {member.mention}! Welcome to the Rainbows and Clouds server! Type ~help for a list of commands. ",cirrus.get_channel(rainbows_and_clouds_channel_id))
 @cirrus.event
 async def on_member_update(before:discord.Member,after:discord.Member):
     if before.nick!=after.nick:
