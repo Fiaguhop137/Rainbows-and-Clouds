@@ -135,7 +135,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
     cmd=cmd.strip().lower()[1:]
     if cmd=="help":
         await echo('```markdown\n'
-        '=Available commands: \n'
+        ' ≈Available commands: \n'
         ' ~help                                  - Show this help message\n'
         ' ~ping                                  - Get the bot\'s latency\n'
         ' ~echo <message>                        - Echos the message back\n'
@@ -382,6 +382,8 @@ async def on_message(message:discord.Message):
         await sync_roles(message.guild)
         await update_nickname(message.author)
         await run_cmd(cmd,args,message)
+        await sync_roles(message.guild)
+        await update_nickname(message.author)
 @cirrus.event
 async def on_member_join(member:discord.Member):
     await sync_roles(member.guild)

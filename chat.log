@@ -4219,3 +4219,190 @@ FFF433FFFFFF9B59D02D2D2DF6A9B9F7C6E9FFFFFFF7C6E9F6A9B9
 [2026-09-13T16:40:15.003121-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): sigh
 [2026-09-13T16:40:18.676542-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): r u dum
 [2026-09-13T16:40:30.580887-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): why cant i set it to my defaul
+[2026-09-13T16:40:50.376214-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~help
+[2026-09-13T16:40:51.612415-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): ```markdown
+=Available commands: 
+ ~help                                  - Show this help message
+ ~ping                                  - Get the bot's latency
+ ~echo <message>                        - Echos the message back
+ ~set <name|pronouns|color> <value>     - Set your name, pronouns, or color
+ ~flag <code>                           - Generate a flag based on the provided hex color code
+ ~replay <lines>                        - Replay the last <lines> messages
+ ~reboot                                - Reboot the bot (lightning only)
+ ~purge <type> <etc>                    - Delete messages according to the specified type and parameters
+```
+[2026-09-13T16:41:21.051678-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Oh
+[2026-09-13T16:42:12.681398-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): ~set <𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨 😤😤😤😤>
+[2026-09-13T16:42:13.970878-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Usage: ~set <name|pronouns|color> <value>
+[2026-09-13T16:42:21.281286-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): huh
+[2026-09-13T16:42:26.016056-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Im not good with ts
+[2026-09-13T16:42:30.761497-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ...
+[2026-09-13T16:42:34.337515-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): r u dum
+[2026-09-13T16:42:43.779881-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): do ~set <name|pronouns|color> <value>
+[2026-09-13T16:42:44.563862-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Yes
+[2026-09-13T16:42:46.602650-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Ok
+[2026-09-13T16:43:15.595065-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set <꒰১ ࿔˚⋆ ~ 𝒮ℯ𝒶𝓇ℴ𝓈ℯ ~ ⋆˚࿔໒꒱|she/her|ffffff> <67>
+[2026-09-13T16:43:16.852865-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Usage: ~set <name|pronouns|color> <value>
+[2026-09-13T16:43:20.274483-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): whats value
+[2026-09-13T16:43:34.462466-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): sigh
+[2026-09-13T16:43:35.959987-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): twi can u get me the special font Thing for my pronouns
+[2026-09-13T16:43:39.145729-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Yes
+[2026-09-13T16:43:42.779585-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): 2sec
+[2026-09-13T16:44:43.167459-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): 𝒮𝒽ℯ/𝒽ℯ𝓇
+[2026-09-13T16:44:46.352538-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): yay
+[2026-09-13T16:44:51.791397-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): whats value tho
+[2026-09-13T16:45:01.554467-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): its ~set
+then you type either "name", "pronouns", or "color". do NOT type anything except for one of THOSE EXACT STRINGS
+THEN type what you want to set your name, pronouns, or color to
+[2026-09-13T16:45:32.109350-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set name ꒰১ ࿔˚⋆ ~ 𝒮ℯ𝒶𝓇ℴ𝓈ℯ ~ ⋆˚࿔໒꒱
+[2026-09-13T16:45:33.550171-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:45:33.836118-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to ꒰১ ࿔˚⋆ ~ 𝒮ℯ𝒶𝓇ℴ𝓈ℯ ~ ⋆˚࿔໒꒱!
+[2026-09-13T16:45:35.457352-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ????
+[2026-09-13T16:45:36.869256-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:45:40.883099-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): its too long
+[2026-09-13T16:45:41.983984-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): wha
+[2026-09-13T16:45:43.206092-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:45:46.753579-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): FUCK YOU
+[2026-09-13T16:45:47.976102-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:15.928918-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): its 24 CHARACHTERS NOT 32
+[2026-09-13T16:46:17.211298-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:17.229678-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): MYGOD
+[2026-09-13T16:46:18.442574-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:37.930532-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set name ꒰ ࿔˚⋆~𝒮ℯ𝒶𝓇ℴ𝓈ℯ~⋆˚࿔꒱
+[2026-09-13T16:46:39.252917-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:39.623771-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:39.801453-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to ꒰ ࿔˚⋆~𝒮ℯ𝒶𝓇ℴ𝓈ℯ~⋆˚࿔꒱!
+[2026-09-13T16:46:43.264629-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): finally
+[2026-09-13T16:46:44.487909-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:46:45.844886-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): WHAT
+[2026-09-13T16:46:47.158924-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:47:13.945007-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): its too long
+[2026-09-13T16:47:25.644609-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Yk what else is long
+[2026-09-13T16:47:30.863985-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): Sorry
+[2026-09-13T16:47:36.191385-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): WHAYGDUIYGFDUHYGFHBKDHUGYFH
+[2026-09-13T16:47:37.653201-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:47:41.649827-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): D:<
+[2026-09-13T16:47:42.881712-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:47:51.549643-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): JUST DO IT RIGHT
+[2026-09-13T16:47:52.798851-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): BITCH
+[2026-09-13T16:48:01.577096-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set name ꒰১ 𝒮ℯ𝒶𝓇ℴ𝓈ℯ ໒꒱
+[2026-09-13T16:48:02.991402-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:03.415885-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:04.140147-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to ꒰১ 𝒮ℯ𝒶𝓇ℴ𝓈ℯ ໒꒱!
+[2026-09-13T16:48:09.928933-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): reallt
+[2026-09-13T16:48:11.127884-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:11.961486-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): really
+[2026-09-13T16:48:13.224007-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:13.825354-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): fuck you
+[2026-09-13T16:48:15.172541-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:20.686342-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): 𝒮ℯ𝒶𝓇ℴ𝓈ℯ
+[2026-09-13T16:48:22.001941-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:22.987687-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): OH MY GOD
+[2026-09-13T16:48:26.953633-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): IT CANNOT BE THIS HARD
+[2026-09-13T16:48:34.159763-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set name 𝒮ℯ𝒶𝓇ℴ𝓈ℯ
+[2026-09-13T16:48:35.377663-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:48:35.864622-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to 𝒮ℯ𝒶𝓇ℴ𝓈ℯ!
+[2026-09-13T16:48:37.711914-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): FINALLT
+[2026-09-13T16:48:39.489602-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): FINALLY
+[2026-09-13T16:48:47.757946-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): GOOD FLARING JOB
+[2026-09-13T16:49:14.895477-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set pronouns {𝒮𝒽ℯ/𝒽ℯ𝓇}
+[2026-09-13T16:49:16.712123-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your pronouns to {𝒮𝒽ℯ/𝒽ℯ𝓇}!
+[2026-09-13T16:50:06.284519-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): ~reboot
+[2026-09-13T16:50:11.914116-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Cirrus has rebooted! Type ~help for a list of commands.
+[2026-09-13T16:50:54.157413-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set color #b8e0e0
+[2026-09-13T16:50:55.836926-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Color must be a valid 6 digit hexadecimal value, e.g. FFAA00.
+[2026-09-13T16:51:01.433777-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): ~set color b8e0e0
+[2026-09-13T16:51:03.064890-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your color to B8E0E0!
+[2026-09-13T16:51:04.281344-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): yay
+[2026-09-13T16:51:06.709528-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): :3
+[2026-09-13T16:51:13.449061-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): OH SHI
+[2026-09-13T16:51:14.426284-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): MY DAD
+[2026-09-13T16:51:15.090883-04:00, Rainbows and Clouds/rainbows] s34r0s3(1539025840866730125): BYE
+[2026-09-13T16:51:44.778055-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): NO
+[2026-09-13T16:51:46.658204-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): dont die twin
+[2026-09-13T16:51:47.076766-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): D:
+[2026-09-13T16:52:09.116132-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): ~set name 𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨 😤😤😤😤
+[2026-09-13T16:52:10.532723-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:11.473904-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to 𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨 😤😤😤😤!
+[2026-09-13T16:52:11.786936-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:13.397426-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): fuck you
+[2026-09-13T16:52:14.922977-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:15.181935-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:20.804456-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): 𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨
+[2026-09-13T16:52:22.094791-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:22.435838-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:27.399832-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): ~set name 𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨
+[2026-09-13T16:52:28.714092-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): Failed to update nickname: 400 Bad Request (error code: 50035): Invalid Form Body
+In nick: Must be 32 or fewer in length.
+[2026-09-13T16:52:29.158878-04:00, Rainbows and Clouds/rainbows] Cirrus#7333(1547336304868589658): I set your name to 𝑻𝑯𝑬 𝑨𝑳𝑷𝑯𝑨!
+[2026-09-13T16:52:33.668179-04:00, Rainbows and Clouds/rainbows] twillight_no(1292531498695524470): finally
+[2026-09-13T17:39:08.465039-04:00, Rainbows and Clouds/rainbows] freakytransboy(1507140530021339317): Who are these ppl
+[2026-09-13T17:53:24.446606-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): uh
+[2026-09-13T17:53:25.096029-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): idk
+[2026-09-13T17:53:26.469010-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): my friends
+[2026-09-13T17:53:29.037599-04:00, Rainbows and Clouds/rainbows] fiaguhop137(1342173566828810271): i think
+[2026-09-13T18:55:47.866841-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): hi guys
+[2026-09-13T18:55:48.890902-04:00, Rainbows and Clouds/rainbows] Dyno#3861(155149108183695360): Welcome back <@1512533966001930254>, I removed your AFK
+[2026-09-13T18:55:49.120321-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): im back
+[2026-09-13T18:55:50.684545-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): oh no
+[2026-09-13T18:55:53.506639-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): i gotta read
+[2026-09-13T18:56:14.503243-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): i hate charlie kirk
+[2026-09-13T18:56:23.902316-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): he deserved what came to him
+[2026-09-13T18:56:24.814535-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): karma
+[2026-09-13T18:56:31.213158-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): searose
+[2026-09-13T18:56:32.779153-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): who are you
+[2026-09-13T18:56:35.912814-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): the alpha
+[2026-09-13T18:56:37.564326-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): who are you
+[2026-09-13T18:58:25.584054-04:00, Rainbows and Clouds/rainbows] pludunn(1512533966001930254): ?afk gotta eat
+[2026-09-13T18:58:26.713956-04:00, Rainbows and Clouds/rainbows] Dyno#3861(155149108183695360): <@1512533966001930254> I set your AFK: gotta eat
+[2026-09-13T19:18:43.859150-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~help
+[2026-09-13T19:18:45.071898-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): ```markdown
+ ≈Available commands: 
+ ~help                                  - Show this help message
+ ~ping                                  - Get the bot's latency
+ ~echo <message>                        - Echos the message back
+ ~set <name|pronouns|color> <value>     - Set your name, pronouns, or color
+ ~flag <code>                           - Generate a flag based on the provided hex color code
+ ~replay <lines>                        - Replay the last <lines> messages
+ ~reboot                                - Reboot the bot (lightning only)
+ ~purge <type> <etc>                    - Delete messages according to the specified type and parameters
+```
+[2026-09-13T19:18:45.181722-04:00, Rainbows and Clouds/lightning] Dyno#3861(155149108183695360): Welcome back <@1512533966001930254>, I removed your AFK
+[2026-09-13T19:20:49.001154-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~replay
+[2026-09-13T19:20:50.256901-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): Usage: ~replay <message count>
+[2026-09-13T19:20:52.863407-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~replay 5
+[2026-09-13T19:20:54.009863-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): ```
+[2026-09-13T19:20:54.262939-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): [2026-09-13T19:18:45.181722-04:00, Rainbows and Clouds/lightning] Dyno#3861(155149108183695360): Welcome back <@1512533966001930254>, I removed your AFK
+[2026-09-13T19:20:54.549511-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): [2026-09-13T19:20:49.001154-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~replay
+[2026-09-13T19:20:55.013882-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): [2026-09-13T19:20:50.256901-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): Usage: ~replay <message count>
+[2026-09-13T19:20:57.837922-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): [2026-09-13T19:20:52.863407-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~replay 5
+[2026-09-13T19:21:02.076341-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): huh
+[2026-09-13T19:21:25.138913-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): ~echo i am dea and i am a stupid fucking bitch
+[2026-09-13T19:21:26.598517-04:00, Rainbows and Clouds/lightning] Cirrus#7333(1547336304868589658): i am dea and i am a stupid fucking bitch
+[2026-09-13T19:21:32.036697-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): lol
+[2026-09-13T19:21:40.492788-04:00, Rainbows and Clouds/lightning] pludunn(1512533966001930254): <@1342173566828810271> look at this

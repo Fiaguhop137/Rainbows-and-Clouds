@@ -39,8 +39,8 @@
         "color": "C8A2C8"
     },
     "1512533966001930254": {
-        "name": "Plutonium",
-        "pronouns": "They/Them",
+        "name": "the republic of china",
+        "pronouns": "~",
         "color": "FFAADD"
     },
     "789314712990384168": {
@@ -49,13 +49,13 @@
         "color": "4D6DF3"
     },
     "1539025840866730125": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help",
-        "color": "000000"
+        "name": "𝒮ℯ𝒶𝓇ℴ𝓈ℯ",
+        "pronouns": "𝒮𝒽ℯ/𝒽ℯ𝓇",
+        "color": "B8E0E0"
     },
     "1292531498695524470": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help",
+        "name": "Twi",
+        "pronouns": "pronouns go here",
         "color": "000000"
     }
 }
