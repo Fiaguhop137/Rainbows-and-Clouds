@@ -17,6 +17,7 @@ banned_words=[
     "tranny",
     "semit",
     "maoist",
+    "neomao",
 ]
 banned_words=re.compile(r"\b(?:"+"|".join(map(re.escape,banned_words))+r")\b",re.IGNORECASE,)
 def load_users():
@@ -127,6 +128,9 @@ async def update_nickname(member:discord.Member):
             await member.edit(nick=nickname)
         except discord.HTTPException as e:
             await echo(f"Failed to update nickname: {e}",cirrus.get_channel(rainbows_and_clouds_channel_id))
+            users[str(member.id)]["name"]="unknown"
+            users[str(member.id)]["pronouns"]="try ~set or ~help"
+            save_users(users)
 async def echo(message,channel:discord.TextChannel):
     return await channel.send(message)
 async def run_cmd(cmd:str,args:list,message:discord.Message):
@@ -370,7 +374,7 @@ async def on_message(message:discord.Message):
     args=parts[1:]
     with open(CHAT_LOG_FILE,"a") as chat_log:
         chat_log.write(f"[{datetime.now(ZoneInfo('America/New_York')).isoformat()}, {message.guild}/{message.channel}] {message.author}({message.author.id}): {message.content}\n")
-    if banned_words.search(message.content):
+    if banned_words.search(message.content) and message.author.id!=cirrus.user.id:
         await message.delete()
         await echo(f"{message.author.mention}, that message was flagged as offensive, inappropriate, and/or vulgar. Ping a cloud if you believe this is a mistake.",message.channel)
         await echo(f"Deleted message from {message.author} in {message.guild}/{message.channel}: {message.content}",cirrus.get_channel(clouds_channel_id))
