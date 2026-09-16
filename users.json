@@ -2,7 +2,8 @@
     "1342173566828810271": {
         "name": "𝓐𝓻𝓭𝓮𝓻𝓪",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
-        "color": "AA0055"
+        "color": "AA0055",
+        "offsenses": "10"
     },
     "1532899245005475860": {
         "name": "𝓔𝓶𝓫𝓮𝓻",
@@ -12,7 +13,8 @@
     "1492932060782919760": {
         "name": "𝓓𝓮𝓪",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
-        "color": "AA0055"
+        "color": "AA0055",
+        "offsenses": "0"
     },
     "1507140530021339317": {
         "name": "Lix",
@@ -41,12 +43,13 @@
     "1512533966001930254": {
         "name": "Plutonium",
         "pronouns": "liberal/woke",
-        "color": "FF88CC"
+        "color": "DEADEA"
     },
     "789314712990384168": {
         "name": "Ben",
-        "pronouns": "fia is stupid",
-        "color": "4D6DF3"
+        "pronouns": "stupid",
+        "color": "4D6DF3",
+        "offsenses": "0"
     },
     "1539025840866730125": {
         "name": "𝒮ℯ𝒶𝓇ℴ𝓈ℯ",

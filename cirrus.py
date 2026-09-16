@@ -1,10 +1,10 @@
-import discord,asyncio,os,json,re,cairosvg,shutil,subprocess
+import discord,asyncio,os,json,re,cairosvg,shutil,subprocess,datetime
 from time import perf_counter
 from dotenv import load_dotenv
-from datetime import datetime
 from zoneinfo import ZoneInfo
 load_dotenv()
 CHAT_LOG_FILE,USERS_FILE="chat.log","users.json"
+open(CHAT_LOG_FILE,"a").close()
 TOKEN,intents=os.getenv("DISCORD_TOKEN"),discord.Intents.default()
 intents.presences,intents.members,intents.message_content=True,True,True
 cirrus=discord.Client(intents=intents)
@@ -111,8 +111,8 @@ async def sync_roles(server:discord.Guild):
         if member is None:continue
         role=cirrus_roles.get(user_id)
         if role is None:
-            role=await server.create_role(name=user_id,colour=discord.Colour.default())
-            await role.edit(colour=discord.Colour(int(users[user_id]["color"],16)))
+            role=await server.create_role(name=user_id,color=discord.Colour.default())
+            await role.edit(color=discord.Colour(int(users[user_id]["color"],16)))
             cirrus_roles[user_id]=role
         for member_role in member.roles:
             if member_role.name.isdigit() and member_role.name!=user_id:
@@ -178,7 +178,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                 users[str(message.author.id)][key]=value.upper()
                 save_users(users)
                 role=discord.utils.get(message.guild.roles,name=str(message.author.id))
-                if role is not None:await role.edit(colour=discord.Colour(color))
+                if role is not None:await role.edit(color=discord.Colour(color))
                 await echo(f"I set your color to {value.upper()}!",message.channel)
                 return
         users[str(message.author.id)][key]=value
@@ -195,13 +195,13 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             svg=generate_flag(code,users[str(message.author.id)]["name"])
             with open(f"{code}.svg","w") as svg_file:
                 svg_file.write(svg)
-            open(f"{code}.png","x")
             png_file=f"{code}.png"
             try:
                 cairosvg.svg2png(bytestring=svg.encode("utf-8"),write_to=png_file,output_width=1200)
                 await message.channel.send(file=discord.File(png_file,filename=png_file))
             finally:
-                os.remove(png_file)
+                if os.path.exists(png_file):
+                    os.remove(png_file)
                 os.makedirs(f"/home/firebot/git/Flags/special/generated/{message.author.name}",exist_ok=True)
                 shutil.move(f"/home/firebot/git/Rainbows and Clouds/{code}.svg",f"/home/firebot/git/Flags/special/generated/{message.author.name}/{code}.svg")
                 subprocess.run(["git","sync"])
@@ -269,81 +269,50 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             count=int(args[2]) if len(args)>2 else 100
             deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
             await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
-        elif cmd=="purge":
-            purge_type=args[0].lower() if args else ""
-            if purge_type=="bots":
+        elif purge_type=="nuke":
+            if "plasma" not in [role.name.lower() for role in message.author.roles]:
+                await echo("You are not authorized to use this command.",message.channel)
+                return
+            nuke_type=args[1].lower() if len(args)>1 else ""
+            if nuke_type=="bots":
                 if "cloud" not in [role.name for role in message.author.roles]:
                     await echo("You are not authorized to use this command.",message.channel)
                     return
-                if len(args)<2:
-                    await echo("Usage: ~purge bots <count>",message.channel)
-                    return
-                try:
-                    count=int(args[1])
-                except ValueError:
-                    await echo("Count must be a valid integer.",message.channel)
-                    return
-                deleted=await message.channel.purge(limit=count,check=lambda m:m.author.bot)
-                await echo(f"Deleted {len(deleted)} bot messages.",message.channel)
-            elif purge_type=="user":
+                while await message.channel.purge(limit=100,check=lambda m:m.author.bot):pass
+                await echo("Deleted all bot messages.",message.channel)
+            elif nuke_type=="user":
                 if "cloud" not in [role.name for role in message.author.roles]:
                     await echo("You are not authorized to use this command.",message.channel)
                     return
                 if len(args)<3:
-                    await echo("Usage: ~purge user <user_id> <count>",message.channel)
+                    await echo("Usage: ~purge nuke user <user_id>",message.channel)
                     return
                 try:
-                    user_id=int(args[1])
-                    count=int(args[2])
+                    user_id=int(args[2])
                 except ValueError:
-                    await echo("User ID and count must be valid integers.",message.channel)
+                    await echo("User ID must be a valid integer.",message.channel)
                     return
-                deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
-                await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
-            elif purge_type=="nuke":
-                if "plasma" not in [role.name.lower() for role in message.author.roles]:
-                    await echo("You are not authorized to use this command.",message.channel)
-                    return
-                nuke_type=args[1].lower() if len(args)>1 else ""
-                if nuke_type=="bots":
-                    if "cloud" not in [role.name for role in message.author.roles]:
-                        await echo("You are not authorized to use this command.",message.channel)
-                        return
-                    while await message.channel.purge(limit=100,check=lambda m:m.author.bot):pass
-                    await echo("Deleted all bot messages.",message.channel)
-                elif nuke_type=="user":
-                    if "cloud" not in [role.name for role in message.author.roles]:
-                        await echo("You are not authorized to use this command.",message.channel)
-                        return
-                    if len(args)<3:
-                        await echo("Usage: ~purge nuke user <user_id>",message.channel)
-                        return
-                    try:
-                        user_id=int(args[2])
-                    except ValueError:
-                        await echo("User ID must be a valid integer.",message.channel)
-                        return
-                    while await message.channel.purge(limit=100,check=lambda m:m.author.id==user_id):
-                        pass
-                    await echo(f"Deleted all messages from user {user_id}.",message.channel)
-                else:
-                    while await message.channel.purge(limit=100):
-                        pass
-                    await echo("Deleted all messages.",message.channel)
+                while await message.channel.purge(limit=100,check=lambda m:m.author.id==user_id):
+                    pass
+                await echo(f"Deleted all messages from user {user_id}.",message.channel)
             else:
-                if "cloud" not in [role.name for role in message.author.roles]:
-                    await echo("You are not authorized to use this command.",message.channel)
-                    return
-                if len(args)<1:
-                    await echo("Usage: ~purge <count>",message.channel)
-                    return
-                try:
-                    count=int(args[0])
-                except ValueError:
-                    await echo("Count must be a valid integer.",message.channel)
-                    return
-                deleted=await message.channel.purge(limit=count)
-                await echo(f"Deleted {len(deleted)} messages.",message.channel)
+                while await message.channel.purge(limit=100):
+                    pass
+                await echo("Deleted all messages.",message.channel)
+        else:
+            if "cloud" not in [role.name for role in message.author.roles]:
+                await echo("You are not authorized to use this command.",message.channel)
+                return
+            if len(args)<1:
+                await echo("Usage: ~purge <count>",message.channel)
+                return
+            try:
+                count=int(args[0])
+            except ValueError:
+                await echo("Count must be a valid integer.",message.channel)
+                return
+            deleted=await message.channel.purge(limit=count)
+            await echo(f"Deleted {len(deleted)} messages.",message.channel)
     else:
         await echo(f"Unknown command: {cmd}. Type ~help for a list of commands.",message.channel)
 @cirrus.event
@@ -362,6 +331,17 @@ async def on_guild_join(server:discord.Guild):
         return
 @cirrus.event
 async def on_message(message:discord.Message):
+    if message.author==cirrus.user:
+        return
+    if str(message.author.id) not in users:
+        users[str(message.author.id)]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000","offsenses":"0"}
+        save_users(users)
+    try: 
+        int(users[str(message.author.id)]["offsenses"])
+    except KeyError:
+        users[str(message.author.id)]["offsenses"]="0"
+        save_users(users)
+    violations=users[str(message.author.id)]["offsenses"]
     if message.guild is None:
         await message.author.send("I don't support DMs. Please use me in the Rainbows and Clouds server.")
         return
@@ -372,22 +352,35 @@ async def on_message(message:discord.Message):
         return
     cmd=parts[0]
     args=parts[1:]
+    with open(CHAT_LOG_FILE,"r") as chat_log:
+        lines=chat_log.readlines()
+        if message.content.strip()==lines[-1].split("):")[-1].strip() and lines[-1].split("(")[-1].split(")")[0].strip()==str(message.author.id):
+            await message.delete()
+            users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])+1)
+            save_users(users)
     with open(CHAT_LOG_FILE,"a") as chat_log:
-        chat_log.write(f"[{datetime.now(ZoneInfo('America/New_York')).isoformat()}, {message.guild}/{message.channel}] {message.author}({message.author.id}): {message.content}\n")
-    if banned_words.search(message.content) and message.author.id!=cirrus.user.id:
+        chat_log.write(f"[{datetime.datetime.now(ZoneInfo('America/New_York')).isoformat()}, {message.guild}/{message.channel}] {message.author}({message.author.id}): {message.content}\n")
+    if banned_words.search(message.content):
         await message.delete()
         await echo(f"{message.author.mention}, that message was flagged as offensive, inappropriate, and/or vulgar. Ping a cloud if you believe this is a mistake.",message.channel)
         await echo(f"Deleted message from {message.author} in {message.guild}/{message.channel}: {message.content}",cirrus.get_channel(clouds_channel_id))
+        users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])+1) if "offsenses" in users[str(message.author.id)] else 1
+        save_users(users)
+    if violations!=users[str(message.author.id)]["offsenses"]:
+        violations=users[str(message.author.id)]["offsenses"]
+        if int(violations)>5:
+            await echo(f"{message.author.mention}, you have been muted for repeated violations(e.g., spamming, hate speech, etc.). Please contact a cloud if you believe this is a mistake.",message.channel)
+            await echo(f"{message.author} has been muted for {violations} violations.",cirrus.get_channel(clouds_channel_id))
+            await message.author.edit(timed_out_until=discord.utils.utcnow()+datetime.timedelta(seconds=int(violations)*10),reason=f"{violations} violations of the rules. ")
         return
-    if message.author!=cirrus.user:
-        if str(message.author.id) not in users:
-            users[str(message.author.id)]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000"}
-            save_users(users)
-        await sync_roles(message.guild)
-        await update_nickname(message.author)
-        await run_cmd(cmd,args,message)
-        await sync_roles(message.guild)
-        await update_nickname(message.author)
+    else:
+        users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])-1) if int(users[str(message.author.id)]["offsenses"])-1>0 else "0"
+    save_users(users)
+    await sync_roles(message.guild)
+    await update_nickname(message.author)
+    await run_cmd(cmd,args,message)
+    await sync_roles(message.guild)
+    await update_nickname(message.author)
 @cirrus.event
 async def on_member_join(member:discord.Member):
     await sync_roles(member.guild)
@@ -400,8 +393,9 @@ async def on_member_update(before:discord.Member,after:discord.Member):
 @cirrus.event
 async def on_ready():
     server=cirrus.get_guild(rainbows_and_clouds_server_id)
-    if server is not None:
-        await sync_roles(server)
+    if server is None:
+        return
+    await sync_roles(server)
     for user in server.members:
         await update_nickname(user)
     await echo(f"Cirrus has rebooted! Type ~help for a list of commands.",cirrus.get_channel(rainbows_and_clouds_channel_id))
