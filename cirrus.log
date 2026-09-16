@@ -1,18 +1,2 @@
-[2026-09-15 18:48:03] [INFO    ] discord.client: logging in using static token
-[2026-09-15 18:48:03] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7ea6669c5d30d68f1952a33bc232cff8).
-[2026-09-15 18:48:06] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/dist-packages/discord/client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/firebot/git/Rainbows and Clouds/cirrus.py", line 339, in on_message
-    if not users[str(message.author.id)]["offsenses"]:
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-KeyError: 'offsenses'
-[2026-09-15 18:48:12] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.12/dist-packages/discord/client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "/home/firebot/git/Rainbows and Clouds/cirrus.py", line 339, in on_message
-    if not users[str(message.author.id)]["offsenses"]:
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-KeyError: 'offsenses'
+[2026-09-16 16:54:05] [INFO    ] discord.client: logging in using static token
+[2026-09-16 16:54:06] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d66726b0ca1c20ec7653c96c900d7a52).

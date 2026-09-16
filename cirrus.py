@@ -334,14 +334,14 @@ async def on_message(message:discord.Message):
     if message.author==cirrus.user:
         return
     if str(message.author.id) not in users:
-        users[str(message.author.id)]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000","offsenses":"0"}
+        users[str(message.author.id)]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000","offenses":"0"}
         save_users(users)
     try: 
-        int(users[str(message.author.id)]["offsenses"])
+        int(users[str(message.author.id)]["offenses"])
     except KeyError:
-        users[str(message.author.id)]["offsenses"]="0"
+        users[str(message.author.id)]["offenses"]="0"
         save_users(users)
-    violations=users[str(message.author.id)]["offsenses"]
+    violations=users[str(message.author.id)]["offenses"]
     if message.guild is None:
         await message.author.send("I don't support DMs. Please use me in the Rainbows and Clouds server.")
         return
@@ -356,7 +356,7 @@ async def on_message(message:discord.Message):
         lines=chat_log.readlines()
         if message.content.strip()==lines[-1].split("):")[-1].strip() and lines[-1].split("(")[-1].split(")")[0].strip()==str(message.author.id):
             await message.delete()
-            users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])+1)
+            users[str(message.author.id)]["offenses"]=str(int(users[str(message.author.id)]["offenses"])+1)
             save_users(users)
     with open(CHAT_LOG_FILE,"a") as chat_log:
         chat_log.write(f"[{datetime.datetime.now(ZoneInfo('America/New_York')).isoformat()}, {message.guild}/{message.channel}] {message.author}({message.author.id}): {message.content}\n")
@@ -364,17 +364,17 @@ async def on_message(message:discord.Message):
         await message.delete()
         await echo(f"{message.author.mention}, that message was flagged as offensive, inappropriate, and/or vulgar. Ping a cloud if you believe this is a mistake.",message.channel)
         await echo(f"Deleted message from {message.author} in {message.guild}/{message.channel}: {message.content}",cirrus.get_channel(clouds_channel_id))
-        users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])+1) if "offsenses" in users[str(message.author.id)] else 1
+        users[str(message.author.id)]["offenses"]=str(int(users[str(message.author.id)]["offenses"])+1) if "offenses" in users[str(message.author.id)] else 1
         save_users(users)
-    if violations!=users[str(message.author.id)]["offsenses"]:
-        violations=users[str(message.author.id)]["offsenses"]
+    if violations!=users[str(message.author.id)]["offenses"]:
+        violations=users[str(message.author.id)]["offenses"]
         if int(violations)>5:
             await echo(f"{message.author.mention}, you have been muted for repeated violations(e.g., spamming, hate speech, etc.). Please contact a cloud if you believe this is a mistake.",message.channel)
             await echo(f"{message.author} has been muted for {violations} violations.",cirrus.get_channel(clouds_channel_id))
             await message.author.edit(timed_out_until=discord.utils.utcnow()+datetime.timedelta(seconds=int(violations)*10),reason=f"{violations} violations of the rules. ")
         return
     else:
-        users[str(message.author.id)]["offsenses"]=str(int(users[str(message.author.id)]["offsenses"])-1) if int(users[str(message.author.id)]["offsenses"])-1>0 else "0"
+        users[str(message.author.id)]["offenses"]=str(int(users[str(message.author.id)]["offenses"])-1) if int(users[str(message.author.id)]["offenses"])-1>0 else "0"
     save_users(users)
     await sync_roles(message.guild)
     await update_nickname(message.author)
