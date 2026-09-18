@@ -241,7 +241,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             await echo("You are not authorized to use this command.",message.channel)
             return
         await echo("Rebooting...",message.channel)
-        reboot="/home/firebot/git/Rainbows and Clouds/restart_cirrus.sh"
+        reboot="/home/firebot/git/Rainbows-and-Clouds/restart_cirrus.sh"
         os.execv(reboot,[reboot])
     elif cmd=="purge":
         purge_type=args[0].lower() if args else ""
@@ -270,7 +270,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
             await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
         elif purge_type=="nuke":
-            if "plasma" not in [role.name.lower() for role in message.author.roles]:
+            if "Plasma" not in [role.name for role in message.author.roles]:
                 await echo("You are not authorized to use this command.",message.channel)
                 return
             nuke_type=args[1].lower() if len(args)>1 else ""
