@@ -25,7 +25,8 @@
     "155149108183695360": {
         "name": "Dyno",
         "pronouns": "It/Its",
-        "color": "808080"
+        "color": "808080",
+        "offenses": "0"
     },
     "1361029857852788988": {
         "name": "Robin",
@@ -62,5 +63,11 @@
         "name": "Twi",
         "pronouns": "pronouns go here",
         "color": "000000"
+    },
+    "1513703238338220071": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
+        "offenses": "0"
     }
 }
