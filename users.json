@@ -8,7 +8,8 @@
     "1532899245005475860": {
         "name": "𝓔𝓶𝓫𝓮𝓻",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
-        "color": "AA0055"
+        "color": "AA0055",
+        "offenses": "0"
     },
     "1492932060782919760": {
         "name": "𝓓𝓮𝓪",
@@ -66,6 +67,30 @@
         "color": "000000"
     },
     "1513703238338220071": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
+        "offenses": "0"
+    },
+    "1325234770950750340": {
+        "name": "void",
+        "pronouns": "null",
+        "color": "00DDFF",
+        "offenses": "0"
+    },
+    "1189748813200638027": {
+        "name": "Dannie",
+        "pronouns": "the plant",
+        "color": "FFE171",
+        "offenses": "0"
+    },
+    "1552464082760634408": {
+        "name": "MELIBELI👹",
+        "pronouns": "they/fae/it",
+        "color": "55FF00",
+        "offenses": "0"
+    },
+    "1552453344281370756": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
