@@ -94,6 +94,6 @@
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "1"
+        "offenses": "0"
     }
 }
