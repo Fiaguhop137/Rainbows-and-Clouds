@@ -123,6 +123,8 @@ async def update_nickname(member:discord.Member):
     user=users.get(str(member.id))
     if user is None:return
     nickname=f'{user["name"]} ({user["pronouns"]})'
+    if user["pronouns"].lower()=="neo":
+        nickname=f'{user["name"]}'
     if member.nick!=nickname:
         try:
             await member.edit(nick=nickname)
