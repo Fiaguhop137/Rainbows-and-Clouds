@@ -18,6 +18,9 @@ banned_words=[
     "semit",
     "maoist",
     "neomao",
+    "easton",
+    "amara",
+    "issac",
 ]
 banned_words=re.compile(r"\b(?:"+"|".join(map(re.escape,banned_words))+r")\b",re.IGNORECASE,)
 def load_users():
