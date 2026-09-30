@@ -23,19 +23,13 @@
         "color": "FF0000",
         "offenses": "0"
     },
-    "155149108183695360": {
-        "name": "Dyno",
-        "pronouns": "It/Its",
-        "color": "808080",
-        "offenses": "0"
-    },
     "1361029857852788988": {
         "name": "Robin",
         "pronouns": "they/them"
     },
     "1486168626821075056": {
-        "name": "destroyer of worlds",
-        "pronouns": "idiot",
+        "name": "Ray",
+        "pronouns": "He/Him",
         "color": "00FFFF",
         "offenses": "0"
     },
@@ -45,10 +39,10 @@
         "color": "C8A2C8"
     },
     "1512533966001930254": {
-        "name": "PLU!",
-        "pronouns": "liberal/woke/left/radical",
+        "name": "Plutonium",
+        "pronouns": "They/Them",
         "color": "FF88CC",
-        "offenses": "0"
+        "offenses": "30"
     },
     "789314712990384168": {
         "name": "Ben",
