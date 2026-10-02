@@ -39,10 +39,10 @@
         "color": "C8A2C8"
     },
     "1512533966001930254": {
-        "name": "Plutonium",
-        "pronouns": "They/Them",
+        "name": "PLU!",
+        "pronouns": "they/them",
         "color": "FF88CC",
-        "offenses": "30"
+        "offenses": "0"
     },
     "789314712990384168": {
         "name": "Ben",
@@ -58,7 +58,8 @@
     "1292531498695524470": {
         "name": "Twi",
         "pronouns": "pronouns go here",
-        "color": "000000"
+        "color": "000000",
+        "offenses": "0"
     },
     "1513703238338220071": {
         "name": "unknown",
@@ -88,6 +89,18 @@
         "name": "Melina",
         "pronouns": "they/fae/it",
         "color": "00FF00",
+        "offenses": "0"
+    },
+    "1008776202191634432": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
+        "offenses": "0"
+    },
+    "669627189624307712": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
         "offenses": "0"
     }
 }
