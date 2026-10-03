@@ -40,10 +40,10 @@
         "offenses": "0"
     },
     "1512533966001930254": {
-        "name": "CONVERT ALL STRAIGHTS",
-        "pronouns": "neo",
-        "color": "FF88CC",
-        "offenses": "0"
+        "name": "CANT SPEAK",
+        "pronouns": "just/got/served",
+        "color": "000044",
+        "offenses": "6"
     },
     "789314712990384168": {
         "name": "Ben",
@@ -99,6 +99,12 @@
         "offenses": "0"
     },
     "669627189624307712": {
+        "name": "unknown",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
+        "offenses": "0"
+    },
+    "917105554906824785": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
