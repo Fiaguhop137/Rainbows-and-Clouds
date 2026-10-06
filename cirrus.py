@@ -219,6 +219,16 @@ async def update_nickname(member:discord.Member):
             users[str(member.id)]["name"]="unknown"
             users[str(member.id)]["pronouns"]="try ~set or ~help"
             save_users(users)
+def has_role(member,role_name):
+    return any(role.name==role_name for role in member.roles)
+def resolve_member(guild:discord.Guild,member_identifier:str):
+    member_identifier=member_identifier.strip("<@!>")
+    member=guild.get_member(int(member_identifier))if member_identifier.isdigit()else None
+    if member is not None:return member
+    for m in guild.members:
+        if m.name.lower()==member_identifier.lower()or(m.nick and m.nick.lower()==member_identifier.lower()):
+            return m
+    return None
 async def run_cmd(cmd:str,args:list,message:discord.Message):
     if cmd[0]!="~":return
     cmd=cmd.strip().lower()[1:]
@@ -234,10 +244,10 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             ' ~replay <lines>                        - Replay the last <lines> messages\n'
             ' ~reboot                                - Reboot the bot (lightning only)\n'
             ' ~purge <type> <etc>                    - Delete messages according to the specified type and parameters\n'
-            ' ~role add <role>                       - Add a role to yourself\n'
-            ' ~role remove <role>                    - Remove a role from yourself\n'
-            ' ~role new <name> [color]               - Create a role (lightning only)\n'
-            ' ~role delete <name>                    - Delete a role (lightning only)\n'
+            ' ~role add <role>                       - Add a role to a member (cloud only)\n'
+            ' ~role remove <role>                    - Remove a role from a member (cloud only)\n'
+            ' ~role new <name>                       - Create a role (cloud only)\n'
+            ' ~role delete <name>                    - Delete a role (cloud only)\n'
             '```',
             message.channel
         )
@@ -403,39 +413,47 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             await echo(f"Deleted {len(deleted)} messages.",message.channel)
     elif cmd=="role":
         if not args:
-            await echo("Usage: ~role <add|remove|new|delete> ...",message.channel)
+            await echo("Usage: ~role <add|remove|new|delete> <args>",message.channel)
             return
         action=args[0].lower()
         if action=="add":
-            if len(args)<2:
-                await echo("Usage: ~role add <role>",message.channel)
-                return
-            role_name=" ".join(args[1:])
-            if role_name.isdigit():
-                await echo("Numbered roles are managed automatically.",message.channel)
-                return
-            if role_name not in roles:
-                await echo(f"Role `{role_name}` does not exist.",message.channel)
-                return
-            user_roles=users[str(message.author.id)]["roles"]
-            if role_name not in user_roles:
-                user_roles.append(role_name)
-                save_users(users)
-            await sync_roles(message.guild)
-            await echo(f"Added `{role_name}` to your roles.",message.channel)
-        elif action=="remove":
-            if len(args)<2:
-                await echo("Usage: ~role remove <role>",message.channel)
-                return
-            role_name=" ".join(args[1:])
-            user_roles=users[str(message.author.id)]["roles"]
-            if role_name not in user_roles:
-                await echo(f"You don't have the `{role_name}` role.",message.channel)
-                return
-            user_roles.remove(role_name)
+            if len(args)<3:
+                return await echo("Usage: ~role add <member> <role>",message.channel)
+            if not has_role(message.author,"cloud"):return await echo("You need the cloud role to use this command.",message.channel)
+            member=resolve_member(message.guild,args[1])
+            if member is None:
+                return await echo("Member not found.",message.channel)
+            role_name=" ".join(args[2:])
+            if role_name not in roles:return await echo(f"Role `{role_name}` does not exist.",message.channel)
+            user_id=str(member.id)
+            if user_id not in users:
+                users[user_id]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000","offenses":"0","roles":[]}
+            if "roles" not in users[user_id]:
+                users[user_id]["roles"]=[]
+            if role_name in users[user_id]["roles"]:
+                return await echo(f"{member.mention} already has `{role_name}`.",message.channel)
+            users[user_id]["roles"].append(role_name)
             save_users(users)
             await sync_roles(message.guild)
-            await echo(f"Removed `{role_name}` from your roles.",message.channel)
+            await echo(f"Added `{role_name}` to {member.mention}.",message.channel)
+        elif action=="remove":
+            if len(args)<3:
+                return await echo("Usage: ~role remove <member> <role>",message.channel)
+            if not has_role(message.author,"cloud"):
+                return await echo("You need the cloud role to use this command.",message.channel)
+            member=resolve_member(message.guild,args[1])
+            if member is None:
+                return await echo("Member not found.",message.channel)
+            role_name=" ".join(args[2:])
+            if member.id.__str__() not in users:
+                return await echo(f"{member.mention} has no stored roles.",message.channel)
+            user_id=str(member.id)
+            if role_name not in users[user_id].get("roles",[]):
+                return await echo(f"{member.mention} does not have `{role_name}`.",message.channel)
+            users[user_id]["roles"].remove(role_name)
+            save_users(users)
+            await sync_roles(message.guild)
+            await echo(f"Removed `{role_name}` from {member.mention}.",message.channel)
         elif action=="new":
             if LIGHTNING_ROLE_ID not in [role.id for role in message.author.roles]:
                 await echo("You are not authorized to use this command.",message.channel)
@@ -492,7 +510,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                     return
             await sync_roles(message.guild)
             await echo(f"Deleted role `{role_name}`.",message.channel)
-        else:await echo("Usage: ~role <add|remove|new|delete> ...",message.channel)
+        else:await echo("Usage: ~role <add|remove|new|delete> <args>",message.channel)
     else:await echo(f"Unknown command: {cmd}. Type ~help for a list of commands.",message.channel)
 @cirrus.event
 async def on_guild_join(server:discord.Guild):

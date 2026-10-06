@@ -69,12 +69,13 @@
         ]
     },
     "1512533966001930254": {
-        "name": "Anti-gossip",
-        "pronouns": "(no/accusations)",
+        "name": "Plutonium",
+        "pronouns": "They/Them",
         "color": "FF99DD",
         "offenses": "0",
         "roles": [
-            "lightning"
+            "lightning",
+            "rainbow"
         ]
     },
     "789314712990384168": {
@@ -83,7 +84,8 @@
         "color": "3F4BBF",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "rainbow",
+            "lightning"
         ]
     },
     "1539025840866730125": {
@@ -120,7 +122,8 @@
         "offenses": "0",
         "roles": [
             "lightning",
-            "rainbow"
+            "rainbow",
+            "cloud"
         ]
     },
     "1189748813200638027": {
