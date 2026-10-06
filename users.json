@@ -3,112 +3,196 @@
         "name": "𝓐𝓻𝓭𝓮𝓻𝓪",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
         "color": "AA0055",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "cloud",
+            "lightning",
+            "rainbow",
+            "sun"
+        ]
     },
     "1532899245005475860": {
         "name": "𝓔𝓶𝓫𝓮𝓻",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
         "color": "AA0055",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "cloud",
+            "lightning",
+            "rainbow",
+            "sun"
+        ]
     },
     "1492932060782919760": {
         "name": "𝓓𝓮𝓪",
         "pronouns": "𝓢𝓱𝓮/𝓗𝓮𝓻",
         "color": "AA0055",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "cloud",
+            "lightning",
+            "rainbow",
+            "sun"
+        ]
     },
     "1507140530021339317": {
         "name": "Lix",
         "pronouns": "He/Him",
         "color": "FF0000",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "cloud",
+            "rainbow"
+        ]
     },
     "1361029857852788988": {
         "name": "Robin",
-        "pronouns": "they/them"
+        "pronouns": "they/them",
+        "roles": []
     },
     "1486168626821075056": {
         "name": "Ray",
         "pronouns": "He/Him",
         "color": "00FFFF",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1483256063502581802": {
-        "name": "Ether",
+        "name": "Jay",
         "pronouns": "They/Them",
         "color": "C8A2C8",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1512533966001930254": {
-        "name": "CANT SPEAK",
-        "pronouns": "just/got/served",
-        "color": "000044",
-        "offenses": "6"
+        "name": "Anti-gossip",
+        "pronouns": "(no/accusations)",
+        "color": "FF99DD",
+        "offenses": "0",
+        "roles": [
+            "lightning"
+        ]
     },
     "789314712990384168": {
         "name": "Ben",
         "pronouns": "stupid",
         "color": "3F4BBF",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1539025840866730125": {
         "name": "𝒮ℯ𝒶𝓇ℴ𝓈ℯ",
         "pronouns": "𝒮𝒽ℯ/𝒽ℯ𝓇",
         "color": "B8E0E0",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1292531498695524470": {
         "name": "Twi",
         "pronouns": "she/her (for now)",
         "color": "527CE9",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1513703238338220071": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1325234770950750340": {
         "name": "null",
         "pronouns": "neo",
         "color": "00DDFF",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "lightning",
+            "rainbow"
+        ]
     },
     "1189748813200638027": {
         "name": "Dannie",
         "pronouns": "the plant",
         "color": "FFE171",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1552464082760634408": {
         "name": "MELIBELI👹",
         "pronouns": "they/fae/it",
         "color": "55FF00",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
     },
     "1552453344281370756": {
         "name": "Melina",
         "pronouns": "they/fae/it",
         "color": "00FF00",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "lightning",
+            "rainbow"
+        ]
     },
     "1008776202191634432": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": []
     },
     "669627189624307712": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": []
     },
     "917105554906824785": {
         "name": "unknown",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "0"
+        "offenses": "0",
+        "roles": [
+            "rainbow"
+        ]
+    },
+    "1547336304868589658": {
+        "name": "Cirrus",
+        "pronouns": "It/Its",
+        "color": "000000",
+        "offenses": "0",
+        "roles": [
+            "cloud",
+            "lightning",
+            "rainbow"
+        ]
+    },
+    "1534678880118378629": {
+        "name": "Plubot",
+        "pronouns": "try ~set or ~help",
+        "color": "000000",
+        "offenses": "0",
+        "roles": [
+            "lightning",
+            "rainbow"
+        ]
     }
 }
