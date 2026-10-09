@@ -5,10 +5,10 @@
         "color": "AA0055",
         "offenses": "0",
         "roles": [
-            "cloud",
-            "lightning",
-            "rainbow",
-            "sun"
+            "xray",
+            "infrared",
+            "ultraviolet",
+            "radio"
         ]
     },
     "1532899245005475860": {
@@ -17,10 +17,10 @@
         "color": "AA0055",
         "offenses": "0",
         "roles": [
-            "cloud",
-            "lightning",
-            "rainbow",
-            "sun"
+            "xray",
+            "infrared",
+            "ultraviolet",
+            "radio"
         ]
     },
     "1492932060782919760": {
@@ -29,10 +29,10 @@
         "color": "AA0055",
         "offenses": "0",
         "roles": [
-            "cloud",
-            "lightning",
-            "rainbow",
-            "sun"
+            "xray",
+            "infrared",
+            "ultraviolet",
+            "radio"
         ]
     },
     "1507140530021339317": {
@@ -41,8 +41,8 @@
         "color": "FF0000",
         "offenses": "0",
         "roles": [
-            "cloud",
-            "rainbow"
+            "xray",
+            "ultraviolet"
         ]
     },
     "1361029857852788988": {
@@ -56,7 +56,7 @@
         "color": "00FFFF",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1483256063502581802": {
@@ -65,17 +65,16 @@
         "color": "C8A2C8",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1512533966001930254": {
-        "name": "Plutonium",
-        "pronouns": "They/Them",
-        "color": "FF99DD",
+        "name": "plu",
+        "pronouns": "pro/nouns",
+        "color": "FF99CC",
         "offenses": "0",
         "roles": [
-            "lightning",
-            "rainbow"
+            "infrared"
         ]
     },
     "789314712990384168": {
@@ -84,8 +83,9 @@
         "color": "3F4BBF",
         "offenses": "0",
         "roles": [
-            "rainbow",
-            "lightning"
+            "ultraviolet",
+            "infrared",
+            "xray"
         ]
     },
     "1539025840866730125": {
@@ -94,7 +94,7 @@
         "color": "B8E0E0",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1292531498695524470": {
@@ -103,7 +103,7 @@
         "color": "527CE9",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1513703238338220071": {
@@ -112,7 +112,7 @@
         "color": "000000",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1325234770950750340": {
@@ -121,9 +121,9 @@
         "color": "00DDFF",
         "offenses": "0",
         "roles": [
-            "lightning",
-            "rainbow",
-            "cloud"
+            "infrared",
+            "ultraviolet",
+            "xray"
         ]
     },
     "1189748813200638027": {
@@ -132,7 +132,7 @@
         "color": "FFE171",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1552464082760634408": {
@@ -141,7 +141,7 @@
         "color": "55FF00",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1552453344281370756": {
@@ -150,8 +150,8 @@
         "color": "00FF00",
         "offenses": "0",
         "roles": [
-            "lightning",
-            "rainbow"
+            "infrared",
+            "ultraviolet"
         ]
     },
     "1008776202191634432": {
@@ -174,35 +174,46 @@
         "color": "000000",
         "offenses": "0",
         "roles": [
-            "rainbow"
+            "ultraviolet"
         ]
     },
     "1547336304868589658": {
-        "name": "Cirrus",
-        "pronouns": "It/Its",
-        "color": "000000",
+        "name": "Prism",
+        "pronouns": "neo",
+        "color": "FEDCBA",
         "offenses": "0",
         "roles": [
-            "cloud",
-            "lightning",
-            "rainbow"
+            "xray",
+            "infrared",
+            "ultraviolet"
         ]
     },
     "1534678880118378629": {
         "name": "Plubot",
         "pronouns": "try ~set or ~help",
         "color": "000000",
-        "offenses": "0",
+        "offenses": "11",
         "roles": [
-            "lightning",
-            "rainbow"
+            "infrared",
+            "ultraviolet"
         ]
     },
     "1341471629007654985": {
-        "name": "unknown",
-        "pronouns": "try ~set or ~help",
-        "color": "000000",
+        "name": "Elle/Ellis",
+        "pronouns": "Any/All",
+        "color": "4A0404",
         "offenses": "0",
-        "roles": []
+        "roles": [
+            "ultraviolet"
+        ]
+    },
+    "1556751097295671386": {
+        "name": "John",
+        "pronouns": "totally real person",
+        "color": "FF99DD",
+        "offenses": "0",
+        "roles": [
+            "ultraviolet"
+        ]
     }
 }

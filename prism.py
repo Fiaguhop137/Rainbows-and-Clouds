@@ -12,13 +12,14 @@ intents=discord.Intents.default()
 intents.presences=True
 intents.members=True
 intents.message_content=True
-cirrus=discord.Client(intents=intents)
-rainbows_and_clouds_server_id=1511895185007579206
-rainbows_and_clouds_channel_id=1534523744779763823
-clouds_channel_id=1534523821762281602
-LIGHTNING_ROLE_ID=1554641502167105687
-CLOUDS_ROLE_ID=1534523120323395626
-SUN_ROLE_ID=1534523571542691881
+prism=discord.Client(intents=intents)
+spectrum_server_id=1511895185007579206
+spectrum_channel_id=1534523744779763823
+mod_channel_id=1534523821762281602
+dev_role_name="infrared"
+member_role_name="ultraviolet"
+owner_role_name="radio"
+mod_role_name="xray"
 banned_words=[
     "nigger",
     "faggot",
@@ -30,7 +31,7 @@ banned_words=[
     "neomao",
     "easton",
     "amara",
-    "issac",
+    "zou",
 ]
 banned_words=re.compile(r"\b(?:"+"|".join(map(re.escape,banned_words))+r")\b",re.IGNORECASE,)
 def load_users():
@@ -118,9 +119,6 @@ def generate_flag(code:str,username:str)->str:
     return svg
 async def echo(message,channel:discord.TextChannel):return await channel.send(message)
 def role_permissions(role_data):return discord.Permissions(role_data.get("permissions",0))
-def role_color(role_data):
-    try:return discord.Colour(int(role_data.get("color","000000"),16))
-    except (ValueError,TypeError):return discord.Colour.default()
 async def sync_roles(server:discord.Guild):
     ensure_user_roles()
     numbered_roles={}
@@ -135,37 +133,31 @@ async def sync_roles(server:discord.Guild):
         member=server.get_member(int(user_id))
         if member is None:continue
         role=numbered_roles.get(user_id)
-        color=role_color(users[user_id])
         if role is None:
             try:
-                role=await server.create_role(name=user_id,color=color,reason="Cirrus user role")
+                role=await server.create_role(name=user_id,color=discord.Colour(int(users[user_id].get("color","000000"),16)),reason="Prism user role")
                 numbered_roles[user_id]=role
             except discord.HTTPException:continue
-        elif role.color.value!=color.value:
-            try:await role.edit(color=color,reason="Cirrus user role synchronization")
+        elif role.color.value!=discord.Colour(int(users[user_id].get("color","000000"),16)).value:
+            try:await role.edit(color=discord.Colour(int(users[user_id].get("color","000000"),16)),reason="Prism user role synchronization")
             except discord.HTTPException:pass
-    discord_named_roles={role.name:role for role in server.roles if not role.name.isdigit()and not role.is_default()}
+    discord_named_roles={role.name:role for role in server.roles if not role.name.isdigit() and not role.is_default() and not role.managed}
     configured_role_names=set(roles.keys())
-    for role_name,role in list(discord_named_roles.items()):
-        if role_name not in configured_role_names:
-            try:await role.delete(reason="Role is not defined in roles.json")
-            except discord.HTTPException:pass
     for role_name,role_data in roles.items():
         if role_name.isdigit():
             continue
         role=discord.utils.get(server.roles,name=role_name)
         if role is None:
             try:
-                role=await server.create_role(name=role_name,color=role_color(role_data),permissions=role_permissions(role_data),reason="Role defined in roles.json")
+                role=await server.create_role(name=role_name,color=discord.Colour.default(),permissions=role_permissions(role_data),reason="Role defined in roles.json")
             except discord.HTTPException as e:
-                await echo(f"Failed to create role `{role_name}`: {e}",cirrus.get_channel(clouds_channel_id))
+                await echo(f"Failed to create role `{role_name}`: {e}",prism.get_channel(mod_channel_id))
                 continue
         else:
             try:
-                color=role_color(role_data)
                 permissions=role_permissions(role_data)
-                if(role.color.value!=color.value or role.permissions.value!=permissions.value):await role.edit(color=color,permissions=permissions,reason="roles.json synchronization")
-            except discord.HTTPException as e:await echo(f"Failed to update role `{role_name}`: {e}",cirrus.get_channel(clouds_channel_id))
+                if(role.color.value!=discord.Colour.default().value or role.permissions.value!=permissions.value):await role.edit(color=discord.Colour.default(),permissions=permissions,reason="roles.json synchronization")
+            except discord.HTTPException as e:await echo(f"Failed to update role `{role_name}`: {e}",prism.get_channel(mod_channel_id))
     discord_named_roles={role.name:role for role in server.roles if not role.name.isdigit() and not role.is_default() and not role.managed}
     configured_role_names=set(roles.keys())
     for role_name,role in list(discord_named_roles.items()):
@@ -174,19 +166,19 @@ async def sync_roles(server:discord.Guild):
             except discord.HTTPException:pass
     for role_name,role_data in roles.items():
         if role_name.isdigit():continue
-        expected_color=role_color(role_data)
+        expected_color=discord.Colour.default()
         expected_permissions=role_permissions(role_data)
         role=discord.utils.get(server.roles,name=role_name)
         if role is None:
             try:role=await server.create_role(name=role_name,color=expected_color,permissions=expected_permissions,reason="Role defined in roles.json")
-            except discord.HTTPException as e:await echo(f"Failed to create role `{role_name}`: {e}",cirrus.get_channel(clouds_channel_id))
+            except discord.HTTPException as e:await echo(f"Failed to create role `{role_name}`: {e}",prism.get_channel(mod_channel_id))
             continue
         if role.color.value!=expected_color.value:
             try:await role.edit(color=expected_color,reason="roles.json color synchronization")
-            except discord.HTTPException as e:await echo(f"Failed to update color for role `{role_name}`: {e}",cirrus.get_channel(clouds_channel_id))
+            except discord.HTTPException as e:await echo(f"Failed to update color for role `{role_name}`: {e}",prism.get_channel(mod_channel_id))
         if role.permissions.value!=expected_permissions.value:
             try:await role.edit(permissions=expected_permissions,reason="roles.json permission synchronization")
-            except discord.HTTPException as e:await echo(f"Failed to update permissions for role `{role_name}`: {e}",cirrus.get_channel(clouds_channel_id))
+            except discord.HTTPException as e:await echo(f"Failed to update permissions for role `{role_name}`: {e}",prism.get_channel(mod_channel_id))
     for user_id,user_data in users.items():
         member=server.get_member(int(user_id))
         if member is None:
@@ -201,11 +193,11 @@ async def sync_roles(server:discord.Guild):
         for member_role in list(member.roles):
             if member_role.is_default():continue
             if member_role.id not in wanted_ids:
-                try:await member.remove_roles(member_role,reason="Cirrus role synchronization")
+                try:await member.remove_roles(member_role,reason="Prism role synchronization")
                 except discord.HTTPException:pass
         for role in wanted_roles:
             if role not in member.roles:
-                try:await member.add_roles(role,reason="Cirrus role synchronization")
+                try:await member.add_roles(role,reason="Prism role synchronization")
                 except discord.HTTPException:pass
 async def update_nickname(member:discord.Member):
     user=users.get(str(member.id))
@@ -215,7 +207,7 @@ async def update_nickname(member:discord.Member):
     if member.nick!=nickname:
         try:await member.edit(nick=nickname)
         except discord.HTTPException as e:
-            await echo(f"Failed to update nickname: {e}",cirrus.get_channel(rainbows_and_clouds_channel_id))
+            await echo(f"Failed to update nickname: {e}",prism.get_channel(spectrum_channel_id))
             users[str(member.id)]["name"]="unknown"
             users[str(member.id)]["pronouns"]="try ~set or ~help"
             save_users(users)
@@ -242,12 +234,10 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             ' ~set <name|pronouns|color> <value>     - Set your name, pronouns, or color\n'
             ' ~flag <code>                           - Generate a flag based on the provided hex color code\n'
             ' ~replay <lines>                        - Replay the last <lines> messages\n'
-            ' ~reboot                                - Reboot the bot (lightning only)\n'
+           f' ~reboot                                - Reboot the bot ({dev_role_name} only)\n'
             ' ~purge <type> <etc>                    - Delete messages according to the specified type and parameters\n'
-            ' ~role add <role>                       - Add a role to a member (cloud only)\n'
-            ' ~role remove <role>                    - Remove a role from a member (cloud only)\n'
-            ' ~role new <name>                       - Create a role (cloud only)\n'
-            ' ~role delete <name>                    - Delete a role (cloud only)\n'
+           f' ~role add <member> <role>              - Add a role to a member ({mod_role_name} only)\n'
+           f' ~role remove <member> <role>           - Remove a role from a member ({mod_role_name} only)\n'
             '```',
             message.channel
         )
@@ -255,7 +245,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         start_time=perf_counter()
         pong=await echo("Pong! (calculating, please wait...)",message.channel)
         end_time=perf_counter()
-        await pong.edit(content=f"pong!: {(cirrus.latency+end_time-start_time)*500:.2f}ms")
+        await pong.edit(content=f"pong!: {(prism.latency+end_time-start_time)*500:.2f}ms")
     elif cmd=="echo":
         await message.delete()
         await echo(" ".join(args),message.channel)
@@ -331,16 +321,16 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         for line in chat_logs[-lines:]:
             await echo(line,message.channel)
     elif cmd=="reboot":
-        if LIGHTNING_ROLE_ID not in [role.id for role in message.author.roles]:
+        if not has_role(message.author,dev_role_name):
             await echo("You are not authorized to use this command.",message.channel)
             return
         await echo("Rebooting...",message.channel)
-        reboot="/home/firebot/git/Rainbows-and-Clouds/restart_cirrus.sh"
+        reboot="/home/firebot/git/Spectrum/restart_prism.sh"
         os.execv(reboot,[reboot])
     elif cmd=="purge":
         purge_type=args[0].lower() if args else ""
         if purge_type=="bots":
-            if CLOUDS_ROLE_ID not in [role.id for role in message.author.roles]:
+            if not has_role(message.author,mod_role_name):
                 await echo("You are not authorized to use this command.",message.channel)
                 return
             if len(args)<2:
@@ -353,7 +343,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             deleted=await message.channel.purge(limit=count,check=lambda m:m.author.bot)
             await echo(f"Deleted {len(deleted)} bot messages.",message.channel)
         elif purge_type=="user":
-            if CLOUDS_ROLE_ID not in [role.id for role in message.author.roles]:
+            if not has_role(message.author,mod_role_name):
                 await echo("You are not authorized to use this command.",message.channel)
                 return
             if len(args)<3:
@@ -368,19 +358,19 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             deleted=await message.channel.purge(limit=count,check=lambda m:m.author.id==user_id)
             await echo(f"Deleted {len(deleted)} messages from user {user_id}.",message.channel)
         elif purge_type=="nuke":
-            if SUN_ROLE_ID not in [role.id for role in message.author.roles]:
+            if not has_role(message.author,owner_role_name):
                 await echo("You are not authorized to use this command.",message.channel)
                 return
             nuke_type=args[1].lower() if len(args)>1 else ""
             if nuke_type=="bots":
-                if CLOUDS_ROLE_ID not in [role.id for role in message.author.roles]:
+                if not has_role(message.author,mod_role_name):
                     await echo("You are not authorized to use this command.",message.channel)
                     return
                 while await message.channel.purge(limit=100,check=lambda m:m.author.bot):
                     pass
                 await echo("Deleted all bot messages.",message.channel)
             elif nuke_type=="user":
-                if CLOUDS_ROLE_ID not in [role.id for role in message.author.roles]:
+                if not has_role(message.author,mod_role_name):
                     await echo("You are not authorized to use this command.",message.channel)
                     return
                 if len(args)<3:
@@ -399,7 +389,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
                     pass
                 await echo("Deleted all messages.",message.channel)
         else:
-            if CLOUDS_ROLE_ID not in [role.id for role in message.author.roles]:
+            if not has_role(message.author,mod_role_name):
                 await echo("You are not authorized to use this command.",message.channel)
                 return
             if len(args)<1:
@@ -419,7 +409,7 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         if action=="add":
             if len(args)<3:
                 return await echo("Usage: ~role add <member> <role>",message.channel)
-            if not has_role(message.author,"cloud"):return await echo("You need the cloud role to use this command.",message.channel)
+            if not has_role(message.author,mod_role_name):return await echo(f"You need the {mod_role_name} role to use this command.",message.channel)
             member=resolve_member(message.guild,args[1])
             if member is None:
                 return await echo("Member not found.",message.channel)
@@ -439,8 +429,8 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
         elif action=="remove":
             if len(args)<3:
                 return await echo("Usage: ~role remove <member> <role>",message.channel)
-            if not has_role(message.author,"cloud"):
-                return await echo("You need the cloud role to use this command.",message.channel)
+            if not has_role(message.author,mod_role_name):
+                return await echo(f"You need the {mod_role_name} role to use this command.",message.channel)
             member=resolve_member(message.guild,args[1])
             if member is None:
                 return await echo("Member not found.",message.channel)
@@ -454,77 +444,21 @@ async def run_cmd(cmd:str,args:list,message:discord.Message):
             save_users(users)
             await sync_roles(message.guild)
             await echo(f"Removed `{role_name}` from {member.mention}.",message.channel)
-        elif action=="new":
-            if LIGHTNING_ROLE_ID not in [role.id for role in message.author.roles]:
-                await echo("You are not authorized to use this command.",message.channel)
-                return
-            if len(args)<2:
-                await echo("Usage: ~role new <name> [color]",message.channel)
-                return
-            role_name=" ".join(args[1:])
-            if role_name.isdigit():
-                await echo("Numbered role names are reserved for user roles.",message.channel)
-                return
-            if role_name in roles:
-                await echo(f"The role `{role_name}` already exists.",message.channel)
-                return
-            existing_role=discord.utils.get(message.guild.roles,name=role_name)
-            if existing_role is not None:
-                await echo(f"A Discord role named `{role_name}` already exists.",message.channel)
-                return
-            color="000000"
-            if len(args)>=3:
-                color=args[2].upper()
-                if len(color)!=6:
-                    await echo("Color must be exactly 6 hexadecimal digits.",message.channel)
-                    return
-                try:int(color,16)
-                except ValueError:
-                    await echo("Color must be a valid hexadecimal value.",message.channel)
-                    return
-            roles[role_name]={"color":color,"permissions":0}
-            save_roles(roles)
-            await sync_roles(message.guild)
-            await echo(f"Created role `{role_name}`.",message.channel)
-        elif action=="delete":
-            if LIGHTNING_ROLE_ID not in [role.id for role in message.author.roles]:
-                await echo("You are not authorized to use this command.",message.channel)
-                return
-            if len(args)<2:
-                await echo("Usage: ~role delete <name>",message.channel)
-                return
-            role_name=" ".join(args[1:])
-            if role_name not in roles:
-                await echo(f"Role `{role_name}` does not exist in roles.json.",message.channel)
-                return
-            roles.pop(role_name)
-            save_roles(roles)
-            for user in users.values():
-                if role_name in user.get("roles",[]):user["roles"].remove(role_name)
-            save_users(users)
-            discord_role=discord.utils.get(message.guild.roles,name=role_name)
-            if discord_role is not None:
-                try:await discord_role.delete(reason="Cirrus role deletion")
-                except discord.HTTPException as e:
-                    await echo(f"Failed to delete Discord role: {e}",message.channel)
-                    return
-            await sync_roles(message.guild)
-            await echo(f"Deleted role `{role_name}`.",message.channel)
         else:await echo("Usage: ~role <add|remove|new|delete> <args>",message.channel)
     else:await echo(f"Unknown command: {cmd}. Type ~help for a list of commands.",message.channel)
-@cirrus.event
+@prism.event
 async def on_guild_join(server:discord.Guild):
     try:
-        if server.id!=rainbows_and_clouds_server_id:
+        if server.id!=spectrum_server_id:
             valid_channels=[channel for channel in server.text_channels if(channel.permissions_for(server.me).view_channel and channel.permissions_for(server.me).send_messages)]
             if not valid_channels:raise ValueError("No valid channels found")
-            await echo("Why did you add me? This bot is only for the Rainbows and Clouds server.",valid_channels[0])
+            await echo("Why did you add me? This bot is only for the Spectrum server.",valid_channels[0])
             raise ValueError("Invalid server found")
-        else:await echo("Hello! I'm Cirrus, a discord bot for the Rainbows and Clouds server. Type ~help for a list of commands.",cirrus.get_channel(rainbows_and_clouds_channel_id))
+        else:await echo("Hello! I'm Prism, a discord bot for the Spectrum server. Type ~help for a list of commands.",prism.get_channel(spectrum_channel_id))
     except:await server.leave()
-@cirrus.event
+@prism.event
 async def on_message(message:discord.Message):
-    if message.author==cirrus.user:return
+    if message.author==prism.user:return
     user_id=str(message.author.id)
     if user_id not in users:
         users[user_id]={"name":"unknown","pronouns":"try ~set or ~help","color":"000000","offenses":"0","roles":[]}
@@ -543,7 +477,7 @@ async def on_message(message:discord.Message):
     if changed:save_users(users)
     violations=users[user_id]["offenses"]
     if message.guild is None:
-        await message.author.send("I don't support DMs. Please use me in the Rainbows and Clouds server.")
+        await message.author.send("I don't support DMs. Please use me in the Spectrum server.")
         return
     if message.author.bot:await asyncio.sleep(1)
     parts=message.content.split()
@@ -565,15 +499,15 @@ async def on_message(message:discord.Message):
     with open(CHAT_LOG_FILE,"a") as chat_log:chat_log.write(f"[{datetime.datetime.now(ZoneInfo('America/New_York')).isoformat()}, "f"{message.guild}/{message.channel}] "f"{message.author}({message.author.id}): "f"{message.content}\n")
     if banned_words.search(message.content):
         await message.delete()
-        await echo(f"{message.author.mention}, that message was flagged as offensive, inappropriate, and/or vulgar. Ping a cloud if you believe this is a mistake.",message.channel)
-        await echo(f"Deleted message from {message.author} in {message.guild}/{message.channel}: {message.content}",cirrus.get_channel(clouds_channel_id))
+        await echo(f"{message.author.mention}, that message was flagged as offensive, inappropriate, and/or vulgar. Ping a {mod_role_name} if you believe this is a mistake.",message.channel)
+        await echo(f"Deleted message from {message.author} in {message.guild}/{message.channel}: {message.content}",prism.get_channel(mod_channel_id))
         users[user_id]["offenses"]=str(int(users[user_id]["offenses"])+1)
         save_users(users)
     if violations!=users[user_id]["offenses"]:
         violations=users[user_id]["offenses"]
         if int(violations)>5:
-            await echo(f"{message.author.mention}, you have been muted for repeated violations(e.g., spamming, hate speech, etc.). Please contact a cloud if you believe this is a mistake.",message.channel)
-            await echo(f"{message.author} has been muted for {violations} violations.",cirrus.get_channel(clouds_channel_id))
+            await echo(f"{message.author.mention}, you have been muted for repeated violations(e.g., spamming, hate speech, etc.). Please contact a {mod_role_name} if you believe this is a mistake.",message.channel)
+            await echo(f"{message.author} has been muted for {violations} violations.",prism.get_channel(mod_channel_id))
             await message.author.edit(timed_out_until=(discord.utils.utcnow()+datetime.timedelta(seconds=int(violations)*10)),reason=f"{violations} violations of the rules.")
         return
     else:
@@ -585,22 +519,22 @@ async def on_message(message:discord.Message):
     await run_cmd(cmd,args,message)
     await sync_roles(message.guild)
     await update_nickname(message.author)
-@cirrus.event
+@prism.event
 async def on_member_join(member:discord.Member):
     await sync_roles(member.guild)
     await update_nickname(member)
-    await echo(f"Hi {member.mention}! Welcome to the Rainbows and Clouds server! Type ~help for a list of commands. ",cirrus.get_channel(rainbows_and_clouds_channel_id))
-@cirrus.event
+    await echo(f"Hi {member.mention}! Welcome to the Spectrum server! Type ~help for a list of commands. ",prism.get_channel(spectrum_channel_id))
+@prism.event
 async def on_member_update(before:discord.Member,after:discord.Member):
     if before.nick!=after.nick:
         await update_nickname(after)
-@cirrus.event
+@prism.event
 async def on_ready():
-    server=cirrus.get_guild(rainbows_and_clouds_server_id)
+    server=prism.get_guild(spectrum_server_id)
     if server is None:
         return
     await sync_roles(server)
     for user in server.members:
         await update_nickname(user)
-    await echo("Cirrus has rebooted! Type ~help for a list of commands.",cirrus.get_channel(rainbows_and_clouds_channel_id))
-cirrus.run(TOKEN)
+    await echo("Prism has rebooted! Type ~help for a list of commands.",prism.get_channel(spectrum_channel_id))
+prism.run(TOKEN)

@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-import discord,os
+import discord,os,math
 load_dotenv()
 TOKEN=os.getenv("DISCORD_TOKEN")
 intents=discord.Intents.default()
@@ -8,13 +8,22 @@ client=discord.Client(intents=intents)
 @client.event
 async def on_ready():
     await client.get_channel(1556028288865018047).send("Welcome to the server! Please read the rules below.")
-    await client.get_channel(1556028288865018047).send("Lift: Lift keeps the community airborne. Members are expected to lift each other up. Harassment, unnecessary hostility, or deliberately dragging others down will result in a loss of altitude, such as a warning or mute. Help keep the server elevated.")
-    await client.get_channel(1556028288865018047).send("Thrust: Thrust is the engine that drives conversation forward. Keep text and voice channels moving in a positive direction. No spamming, flooding chat with identical memes, or using slurs or hate speech. Swearing is fine, just don't overdo it.")
-    await client.get_channel(1556028288865018047).send("Drag: Drag slows the server down. Trolling, harassment, and cyberbullying create friction that ruins the vibe. Minimize the friction and keep the community streamlined.")
-    await client.get_channel(1556028288865018047).send("Lift: Lift keeps the community airborne. Members are expected to lift each other up. Harassment, unnecessary hostility, or deliberately dragging others down will result in a loss of altitude, such as a warning or mute. Help keep the server elevated.")
-    await client.get_channel(1556028288865018047).send("Weight: Weight is the gravitational pull holding us to reality. Content must remain grounded in safety and legality. Absolutely no NSFW content, illegal material, or dangerous links. Violations may result in a mute and/or more serious administrative action.")
-    await client.get_channel(1556028288865018047).send("Bernoulli's Principle: High flow velocity can correspond to lower static pressure. When a debate accelerates too quickly and the pressure starts rising, Clouds may temporarily lock a channel or enable slow mode to let things cool down. Keep your cool when the velocity picks up.")
-    await client.get_channel(1556028288865018047).send("Action & Reaction: Every action has an equal and opposite reaction. If you choose to break a rule or disrespect a member, expect an appropriate administrative reaction, such as a warning, mute, or worse. You are responsible for the momentum of your own actions.")
-    await client.get_channel(1556028288865018047).send("Supersonic Flight: Going too fast breaks things. Do not bypass server security, circumvent automod filters, or attempt to raid the server. Breaking the barrier gets you ejected.")
-    await client.get_channel(1556028288865018047).send("Boundary Layer: The boundary layer is the fluid zone closest to a surface and should not be unnecessarily disrupted. Respect people's personal boundaries. No unsolicited DMs, doxxing, or leaking private information. Keep the personal boundary layer intact.")
-client.run(TOKEN)
+    await client.get_channel(1556028288865018047).send("Frequency: Every signal occupies its own frequency. Keep conversation appropriate to the channel and don't deliberately disrupt other conversations. Spam, flooding, and repeated messages create interference.")
+    await client.get_channel(1556028288865018047).send("Interference: Waves can interfere with one another. Don't deliberately interfere with other members through trolling, harassment, hostility, or starting unnecessary conflicts. Let people communicate without turning every discussion into static.")
+    await client.get_channel(1556028288865018047).send("Absorption: Materials can absorb electromagnetic energy. The server can absorb problematic behavior too, in the form of warnings, mutes, kicks, or bans. Repeated violations will eventually get absorbed from the server entirely.")
+    await client.get_channel(1556028288865018047).send("Wavelength: Every wave has boundaries defined by its wavelength. Respect other people's boundaries. No unsolicited DMs, doxxing, leaking private information, or other invasions of privacy.")
+    await client.get_channel(1556028288865018047).send("Energy: Electromagnetic radiation carries energy. Use that energy constructively. Keep discussion reasonably positive and don't deliberately make the server hostile or miserable for everyone else.")
+    await client.get_channel(1556028288865018047).send("Spectrum: The electromagnetic spectrum covers an enormous range of frequencies. People can have very different interests, opinions, personalities, and identities. You don't have to agree with everyone, but you do have to treat people with basic respect.")
+    await client.get_channel(1556028288865018047).send("Propagation: Electromagnetic waves propagate through their environment. Don't deliberately spread harmful content, misinformation intended to cause harm, malicious links, or anything that could compromise the server or its members.")
+    await client.get_channel(1556028288865018047).send("Reflection: Waves can reflect from surfaces. Think before you send something, because once you've put something into a public channel, other people can see, quote, or respond to it. Don't use that as an excuse to post private information or harmful content.")
+    await client.get_channel(1556028288865018047).send("Resonance: When a system is driven at the right frequency, its response can become dangerously large. Do not attempt to exploit, raid, crash, spam, or otherwise deliberately overwhelm the server. Don't bypass security systems or automod filters. If you try to make the server resonate, you'll probably discover that the moderation team also has a frequency.")
+#client.run(TOKEN)
+commands=[]
+points=300
+for i in range(points+1):
+    x=i/(points/5)
+    y=math.sin(x**2)
+    sx=x*20
+    sy=90-10*y
+    commands.append(f"{'M' if i==0 else 'L'} {sx:.2f} {sy:.2f}")
+print('<path d="' + " ".join(commands) + '" fill="none" stroke="white" stroke-width="2"/>')

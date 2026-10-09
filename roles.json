@@ -1,18 +1,6 @@
 {
-    "rainbow": {
-        "color": "000000",
-        "permissions": 1720707884371649
-    },
-    "lightning": {
-        "color": "000000",
-        "permissions": 1720707884371649
-    },
-    "cloud": {
-        "color": "000000",
-        "permissions": 1721807828152259
-    },
-    "sun": {
-        "color": "000000",
-        "permissions": 8
-    }
+    "ultraviolet":{"permissions":1791090520088257},
+    "infrared":{"permissions":1791091056959169},
+    "xray":{"permissions":1118734262576},
+    "radio":{"permissions":8}
 }
